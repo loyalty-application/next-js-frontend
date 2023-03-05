@@ -12,7 +12,7 @@ import { CgProfile } from "react-icons/cg";
 
 function SideNavbar() {
   return (
-    <div className="shadow-2xl">
+    <div className="shadow-2xl h-fit">
       <Disclosure as="nav">
         <Disclosure.Button className="p-4 top-4 right-4 inline-flex items-center peer justify-center rounded-md text-gray-800 hover:bg-[#2A4390] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
           <GiHamburgerMenu

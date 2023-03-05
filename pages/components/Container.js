@@ -5,7 +5,7 @@ import Table from "./Table";
 
 const Container = () => {
   return (
-    <div className="h-screen bg-gradient-to-r from-gray-100 to-gray-50">
+    <div className="h-fit bg-gradient-to-r from-gray-100 to-gray-50">
       <div className="p-4">
         <p className="font-bold text-2xl pt-10 px-5">Wallet</p>
       </div>
