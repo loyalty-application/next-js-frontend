@@ -23,8 +23,8 @@ const data = {
 
 const RightBar = () => {
     return (
-        <div className="bg-white  w-4/12 rounded-xl border border-gray-100">
-            <div className="border-b p-3 border-gray-100">
+        <div className="bg-white w-4/12 rounded-xl border border-gray-100 m-4">
+            <div className="border-b p-4 border-gray-100">
                 <p className="font-semibold  ">Delegation </p>
             </div>
             <div className="flex flex-col items-center p-3">

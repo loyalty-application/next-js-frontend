@@ -1,7 +1,6 @@
 import React from "react";
 
-const Card = () =>  {
-
+const Card = () => {
   return (
     <div class="flex flex-row w-full justify-between p-5">
       <div class="flex flex-col app-bg-gradient-blue w-1/5 h-36 p-4 m-4 rounded-xl app-box-shadow-blue">
@@ -19,7 +18,7 @@ const Card = () =>  {
         <span class="text-white text-xl font-semibold">SCIS Bank</span>
         <span class="text-white text-xs">**** **** **** 4558</span>
       </div>
-      <div class="flex flex-col app-bg-gradient-yellow w-1/5 h-36 p-4 m-4 rounded-xl app-box-shadow-yellow">
+      <div class="flex flex-col app-bg-gradient-magenta w-1/5 h-36 p-4 m-4 rounded-xl app-box-shadow-magenta">
         <span class="text-white font-bold mb-auto">Shopping</span>
         <span class="text-white text-xl font-semibold">SCIS Bank</span>
         <span class="text-white text-xs">**** **** **** 4558</span>

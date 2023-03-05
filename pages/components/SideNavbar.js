@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Disclosure } from "@headlessui/react";
 import {
@@ -37,7 +38,6 @@ function SideNavbar() {
                   Wallet
                 </h3>
               </div>
-              
             </div>
             {/* setting  */}
             <div className=" my-4 border-b border-gray-100 pb-4">
@@ -55,13 +55,15 @@ function SideNavbar() {
               </div>
             </div>
             {/* logout */}
-            <div className=" my-4">
-              <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Logout
-                </h3>
-              </div>
+            <div className="my-4">
+              <Link href="/Landing">
+                <a className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white" />
+                  <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
+                    Logout
+                  </h3>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
