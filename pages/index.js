@@ -1,20 +1,16 @@
 import Head from 'next/head'
 import Sidebar from './components/SideNavbar'
-import Header from "./components/Header"
 import Container from './components/Container'
-
 
 export default function Home() {
   return (
-    <div>
-      <div className="flex w-screen h-screen" >
+    <div className="min-h-screen md:flex">
+      <div>
         <Sidebar />
-        <div className="w-screen ">
-          <Header />
-          <Container />
-        </div>
       </div>
-
-    </div>
+      <div className="w-full md:w-auto md:flex-grow">
+        <Container />
+      </div>
+    </div>    
   )
 }

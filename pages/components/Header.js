@@ -1,8 +1,4 @@
 import React from 'react'
-// import DashboardIcon from '@material-ui/icons/Dashboard';
-// import CropLandscapeIcon from '@material-ui/icons/CropLandscape';
-// import AppsIcon from '@material-ui/icons/Apps';
-// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Header = () => {
     return (
