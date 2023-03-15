@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import cards from ".././public/images/card.png";
 
 const Landing = () => {
   return (
@@ -9,73 +11,28 @@ const Landing = () => {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <div class="flex-shrink-0">
               <a href="#" title="" class="flex">
-                <h1 className="text-white text-2xl font-bold">
-                    ASCLoyalty
-                </h1>
+                <h1 className="text-white text-2xl font-bold">ASCLoyalty</h1>
               </a>
             </div>
 
-            {/* <div class="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
-              <a
-                href="#"
-                title=""
-                class="text-base text-white transition-all duration-200 hover:text-opacity-80"
-              >
-                {" "}
-                Features{" "}
-              </a>
-
-              <a
-                href="#"
-                title=""
-                class="text-base text-white transition-all duration-200 hover:text-opacity-80"
-              >
-                {" "}
-                Solutions{" "}
-              </a>
-
-              <a
-                href="#"
-                title=""
-                class="text-base text-white transition-all duration-200 hover:text-opacity-80"
-              >
-                {" "}
-                Resources{" "}
-              </a>
-
-              <a
-                href="#"
-                title=""
-                class="text-base text-white transition-all duration-200 hover:text-opacity-80"
-              >
-                {" "}
-                Pricing{" "}
-              </a>
-            </div> */}
-
-            
             <div class="lg:flex lg:items-center lg:justify-end lg:space-x-6 sm:ml-auto">
-              <Link href="/Wallet">
-                <a
-                  href="#"
-                  title=""
-                  class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white "
-                  role="button"
-                >
-                  {" "}
-                  Home{" "}
-                </a>
+              <Link
+                href="/Wallet"
+                title=""
+                class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white "
+                role="button"
+              >
+                {" "}
+                Home{" "}
               </Link>
-              <Link href="/Login">
-                <a
-                  href="#"
-                  title=""
-                  class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white bg-white/20 hover:bg-white/40 focus:bg-white/40 rounded-lg"
-                  role="button"
-                >
-                  {" "}
-                  Log In{" "}
-                </a>
+              <Link
+                href="/Login"
+                title=""
+                class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white bg-white/20 hover:bg-yellow-300 hover:text-inherit rounded-lg"
+                role="button"
+              >
+                {" "}
+                Log In{" "}
               </Link>
             </div>
 
@@ -117,24 +74,11 @@ const Landing = () => {
         </div>
       </header>
 
-      <section class="relative lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
-        <div class="absolute inset-x-0 bottom-0 z-10 hidden lg:flex">
-          <img
-            class="hidden w-full lg:block"
-            src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/5/credit-cards.png"
-            alt=""
-          />
-          <img
-            class="block w-full lg:hidden"
-            src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/5/credit-cards-mobile.png"
-            alt=""
-          />
-        </div>
-
+      <section class="relative w-full lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
           <div class="max-w-xl mx-auto text-center">
             <h1 class="text-4xl font-bold sm:text-6xl">
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-white">
                 {" "}
                 Transaction processing made easy.{" "}
               </span>
@@ -188,9 +132,7 @@ const Landing = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <p class="ml-3 text-sm text-white">
-                  Performant
-                </p>
+                <p class="ml-3 text-sm text-white">Performant</p>
               </div>
 
               <div class="flex items-center">
@@ -219,9 +161,7 @@ const Landing = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <p class="ml-3 text-sm text-white">
-                  Highly available
-                </p>
+                <p class="ml-3 text-sm text-white">Highly available</p>
               </div>
 
               <div class="flex items-center">
@@ -258,12 +198,13 @@ const Landing = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <p class="ml-3 text-sm text-white">
-                  Secured & safe 
-                </p>
+                <p class="ml-3 text-sm text-white">Secured & safe</p>
               </div>
             </div>
           </div>
+        </div>
+        <div className="w-full py-10 px-40"> 
+          <Image src={cards} className=" object-scale-down flex justify-center items-center p-2 scale-75 hover:scale-90 duration-1000 opacity-[80%] hover:opacity-100"/>
         </div>
       </section>
     </div>
