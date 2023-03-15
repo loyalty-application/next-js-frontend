@@ -203,8 +203,11 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="w-full py-10 px-40"> 
-          <Image src={cards} className=" object-scale-down flex justify-center items-center p-2 scale-75 hover:scale-90 duration-1000 opacity-[80%] hover:opacity-100"/>
+        <div className="w-full py-10 px-40">
+          <Image
+            src={cards}
+            className=" object-scale-down flex justify-center items-center p-2 scale-75 hover:scale-90 duration-1000 opacity-[80%] hover:opacity-100"
+          />
         </div>
       </section>
     </div>
