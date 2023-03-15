@@ -39,6 +39,7 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+  background-color: rgb(252 211 77);
 }
 
 .app-bg-white {
@@ -96,40 +97,6 @@ button {
 .app-border-gray-3 {
   border-color: #CFCFCF;
 }
-
-/* .app-bg-gradient-blue {
-  background: linear-gradient(to bottom left, #2d55dc, #18317C);
-}
-
-.app-box-shadow-blue {
-  box-shadow: 0 4px 20px 0 rgb(45 85 220 / 70%)
-}
-
-.app-bg-gradient-red {
-  background: linear-gradient(to bottom left, #ff0000, #8b0000);
-}
-
-.app-box-shadow-red {
-  box-shadow: 0 4px 20px 0 rgba(255, 0, 0, 0.7);
-}
-
-.app-bg-gradient-green {
-  background: linear-gradient(to bottom left, #00ff00, #006400);
-}
-
-
-.app-box-shadow-green {
-  box-shadow: 0 4px 20px 0 rgba(0, 255, 0, 0.7);
-}
-
-.app-bg-gradient-magenta {
-  background: linear-gradient(to bottom left, #ffff00, #ffd700);
-}
-
-
-.app-box-shadow-magenta {
-  box-shadow: 0 4px 20px 0 rgba(255, 255, 0, 0.7);
-} */
 
 .app-box-shadow-blue {
   box-shadow: 0 4px 20px 0 rgba(45, 85, 220, 0.5);
