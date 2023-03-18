@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import RightBar from "./RightBar";
+import Rewards from "./Rewards";
 
 const Container = () => {
   return (
@@ -12,7 +12,7 @@ const Container = () => {
         <Card />
       </div>
       <div className="flex m-4 space-x-6">
-        <RightBar />
+        <Rewards />
       </div>
     </div>
   );
