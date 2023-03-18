@@ -151,7 +151,7 @@ const rows = [
   createData(
     "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
     "01/01/2023",
-    "Excluded",
+    "Earn",
     3450,
     0,
     4.99
@@ -323,7 +323,7 @@ export default function CustomPaginationActionsTable() {
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+                  rowsPerPageOptions={[10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
