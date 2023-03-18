@@ -98,7 +98,7 @@ const Login = () => {
 
                   <div>
                     <Link
-                      href="/Wallet"
+                      href="/Dashboard"
                       class="inline-flex items-center justify-center px-3 sm:px-5 py-2 text-sm sm:text-base font-semibold transition-all bg-amber-300 text-inherit hover:scale-100 scale-90 duration-300 rounded-lg"
                     >
                       Log in
