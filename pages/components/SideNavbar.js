@@ -28,25 +28,23 @@ function SideNavbar() {
             <div className=" my-4 border-b border-gray-100 pb-4">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Dashboard
-                </h3>
-              </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <CgProfile className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  Wallet
-                </h3>
+                <Link href="/Dashboard">
+                  <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
+                    Dashboard
+                  </h3>
+                </Link>
               </div>
             </div>
             {/* setting  */}
             <div className=" my-4 border-b border-gray-100 pb-4">
+              <Link href="/Transactions">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSettings className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Settings
                 </h3>
               </div>
+              </Link>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineMoreHoriz className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
@@ -56,12 +54,14 @@ function SideNavbar() {
             </div>
             {/* logout */}
             <div className="my-4">
-              <Link href="/Landing"
-                className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                  <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white" />
-                  <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
-                    Logout
-                  </h3>
+              <Link
+                href="/Landing"
+                className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto"
+              >
+                <MdOutlineLogout className="text-2xl text-gray-600 group-hover:text-white" />
+                <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
+                  Logout
+                </h3>
               </Link>
             </div>
           </div>

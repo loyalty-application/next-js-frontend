@@ -106,7 +106,7 @@ const Signup = () => {
 
                 <div>
                   <Link
-                    href="/Wallet"
+                    href="/Dashboard"
                     class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all  bg-amber-300 text-inherit duration-300 border border-transparent rounded-md focus:outline-none"
                   >
                     Create account

@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from './components/SideNavbar'
 import Container from './components/Container'
 
-const Wallet = () => {
+const Dashboard = () => {
   return (
     <div className="min-h-screen md:flex ">
       <div className='h-fit'>
@@ -15,4 +15,4 @@ const Wallet = () => {
   )
 }
 
-export default Wallet
+export default Dashboard
