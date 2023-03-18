@@ -199,6 +199,86 @@ const rows = [
   createData(
     "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
     "01/01/2023",
+    "Earn",
+    3450,
+    345,
+    3.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Earn",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Earn",
+    3450,
+    345,
+    3.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
+    "Excluded",
+    3450,
+    0,
+    4.99
+  ),
+  createData(
+    "07110e8bf85f1a1229eaa5dcbdea68c51d537218143d0021945cfae8861e3efc",
+    "01/01/2023",
     "Excluded",
     3450,
     0,
@@ -269,7 +349,7 @@ TablePaginationActions.propTypes = {
 
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
