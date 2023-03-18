@@ -2,16 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Disclosure } from "@headlessui/react";
-import {
-  MdOutlineSpaceDashboard,
-  MdOutlineMoreHoriz,
-  MdOutlineSettings,
-  MdOutlineLogout,
-} from "react-icons/md";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { CgProfile } from "react-icons/cg";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import LogoutIcon from "@mui/icons-material/Logout";
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 
 function SideNavbar() {
   return (
@@ -42,22 +36,20 @@ function SideNavbar() {
             <div className=" my-4 border-b border-gray-100 pb-4">
               <Link href="/Transactions">
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                  <DashboardIcon style={{ fill: "white" }} />
+                  <ReceiptLongIcon style={{ fill: "white" }} />
                   <h3 className="text-base text-white font-semibold ">
                     Temporary Transactions
                   </h3>
                 </div>
               </Link>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MoreHorizIcon  style={{ fill: "white" }} />
-                <h3 className="text-base text-white font-semibold ">
-                  More
-                </h3>
+                <MoreHorizIcon style={{ fill: "white" }} />
+                <h3 className="text-base text-white font-semibold ">More</h3>
               </div>
             </div>
             {/* logout */}
             <div className="my-4">
-            <Link href="/Landing">
+              <Link href="/Landing">
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <LogoutIcon style={{ fill: "white" }} />
                   <h3 className="text-base text-white font-semibold ">

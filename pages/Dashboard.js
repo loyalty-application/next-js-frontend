@@ -9,8 +9,8 @@ const Dashboard = () => {
       <div className="h-fit">
         <SideNavbar />
       </div>
-      <div className="w-full md:w-auto h-max md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
-        <div className="h-fit bg-gradient-to-r from-gray-100 to-gray-50">
+      <div className="w-full h-screen md:w-auto md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
+        <div className="bg-gradient-to-r from-gray-100 to-gray-50">
           <div className="p-4">
             <p className="font-bold text-2xl pt-10 px-5">
               {" "}

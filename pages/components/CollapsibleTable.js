@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { TablePagination } from '@mui/material';
 
 function createData(
   transactionId,
@@ -161,7 +162,7 @@ const rows = [
 export default function CollapsibleTable() {
   return (
     <div>
-      <div className="p-20">
+      <div>
         <TableContainer component={Paper}>
           <Table aria-label="collapsible table">
             <TableHead>
