@@ -5,7 +5,8 @@ import { Disclosure } from "@headlessui/react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import LogoutIcon from "@mui/icons-material/Logout";
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import CampaignIcon from "@mui/icons-material/Campaign";
 
 function SideNavbar() {
   return (
@@ -42,10 +43,14 @@ function SideNavbar() {
                   </h3>
                 </div>
               </Link>
-              <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MoreHorizIcon style={{ fill: "white" }} />
-                <h3 className="text-base text-white font-semibold ">More</h3>
-              </div>
+              <Link href="components/Campaign/AddCampaign">
+                <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-[#2A4390] p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <CampaignIcon style={{ fill: "white" }} />
+                  <h3 className="text-base text-white font-semibold ">
+                    Campaigns
+                  </h3>
+                </div>
+              </Link>
             </div>
             {/* logout */}
             <div className="my-4">
