@@ -21,69 +21,6 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 
-// function Row(props) {
-//   const { row } = props;
-//   const [open, setOpen] = React.useState(false);
-
-//   return (
-//     <React.Fragment>
-//       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-//         <TableCell>
-//           <IconButton
-//             aria-label="expand row"
-//             size="small"
-//             onClick={() => setOpen(!open)}
-//           >
-//             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-//           </IconButton>
-//         </TableCell>
-//         <TableCell component="th" scope="row">
-//           {row.transaction_id}
-//         </TableCell>
-//         <TableCell>{row.transaction_date}</TableCell>
-//         <TableCell>{row.merchant}</TableCell>
-//         <TableCell>{row.amount}</TableCell>
-//         <TableCell>{row.points}</TableCell>
-//       </TableRow>
-//       <TableRow>
-//         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-//           <Collapse in={open} timeout="auto" unmountOnExit>
-//             <Box sx={{ margin: 1 }}>
-//               <Typography variant="h6" gutterBottom component="div">
-//                 Details
-//               </Typography>
-//               <Table size="small" aria-label="campaign-details">
-//                 <TableHead>
-//                   <TableRow>
-//                     <TableCell>Campaign ID</TableCell>
-//                     <TableCell>Merchant</TableCell>
-//                     <TableCell>Card Type</TableCell>
-//                     <TableCell>Description</TableCell>
-//                     <TableCell>Start Date</TableCell>
-//                     <TableCell>End Date</TableCell>
-//                   </TableRow>
-//                 </TableHead>
-//                 <TableBody>
-//                   <TableRow key={row.campaign.campaign_id}>
-//                     <TableCell component="th" scope="row">
-//                       {row.campaign.campaign_id}
-//                     </TableCell>
-//                     <TableCell>{row.campaign.merchant}</TableCell>
-//                     <TableCell>{row.campaign.card_type}</TableCell>
-//                     <TableCell>{row.campaign.description}</TableCell>
-//                     <TableCell>{row.campaign.start_date}</TableCell>
-//                     <TableCell>{row.campaign.end_date}</TableCell>
-//                   </TableRow>
-//                 </TableBody>
-//               </Table>
-//             </Box>
-//           </Collapse>
-//         </TableCell>
-//       </TableRow>
-//     </React.Fragment>
-//   );
-// }
-
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
@@ -113,7 +50,36 @@ function Row(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                Details
+                💳 Card Details
+              </Typography>
+              <Table size="small" aria-label="campaign-details">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Card ID</TableCell>
+                    <TableCell>Card PAN</TableCell>
+                    <TableCell>Card Type</TableCell>
+                    <TableCell>Currency</TableCell>
+                    <TableCell>User ID</TableCell>
+                    <TableCell>MCC</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow key={row.card_id}>
+                    <TableCell component="th" scope="row">
+                      {row.card_id}
+                    </TableCell>
+                    <TableCell>{row.card_pan}</TableCell>
+                    <TableCell>{row.card_type}</TableCell>
+                    <TableCell>{row.currency}</TableCell>
+                    <TableCell>{row.user_id}</TableCell>
+                    <TableCell>{row.mcc}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Box>
+            <Box sx={{ margin: 1 }}>
+              <Typography variant="h6" gutterBottom component="div">
+                🎁 Campaign Details
               </Typography>
               <Table size="small" aria-label="campaign-details">
                 <TableHead>
@@ -124,6 +90,7 @@ function Row(props) {
                     <TableCell>Description</TableCell>
                     <TableCell>Start Date</TableCell>
                     <TableCell>End Date</TableCell>
+                    <TableCell> Deleted? </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -136,6 +103,7 @@ function Row(props) {
                     <TableCell>{row.campaign.description}</TableCell>
                     <TableCell>{row.campaign.start_date}</TableCell>
                     <TableCell>{row.campaign.end_date}</TableCell>
+                    <TableCell>{row.is_deleted ? "Yes" : "No"}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -149,22 +117,33 @@ function Row(props) {
 
 Row.propTypes = {
   row: PropTypes.shape({
-    date: PropTypes.number.isRequired,
-    transactionAmount: PropTypes.number.isRequired,
-    transactionType: PropTypes.number.isRequired,
-    transactionDetails: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    transactionId: PropTypes.string.isRequired,
-    transactionPoints: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+    campaign: PropTypes.shape({
+      campaign_id: PropTypes.string.isRequired,
+      merchant: PropTypes.string.isRequired,
+      card_type: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      start_date: PropTypes.string.isRequired,
+      end_date: PropTypes.string.isRequired,
+    }).isRequired,
+    card_id: PropTypes.string.isRequired,
+    card_pan: PropTypes.string.isRequired,
+    card_type: PropTypes.string.isRequired,
+    cashback: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    is_deleted: PropTypes.bool.isRequired,
+    mcc: PropTypes.string.isRequired,
+    merchant: PropTypes.string.isRequired,
+    miles: PropTypes.number.isRequired,
+    points: PropTypes.number.isRequired,
+    transaction_date: PropTypes.string.isRequired,
+    transaction_id: PropTypes.string.isRequired,
+    user_id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-const rows = [].sort((a, b) => (a.date < b.date ? -1 : 1));
+// const rows = [].sort((a, b) => (a.date < b.date ? -1 : 1));
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -277,7 +256,9 @@ export default function CustomPaginationActionsTable() {
   };
 
   // Update rows to match the data structure
-  const rows = transactions.sort((a, b) => (a.transaction_date < b.transaction_date ? -1 : 1));
+  const rows = transactions.sort((a, b) =>
+    a.transaction_date < b.transaction_date ? -1 : 1
+  );
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -290,7 +271,9 @@ export default function CustomPaginationActionsTable() {
           <Table aria-label="collapsible table">
             <TableHead>
               <TableRow>
-                <TableCell>Transaction ID</TableCell>
+                <TableCell colSpan={2} align="right">
+                  Transaction ID
+                </TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>Merchant</TableCell>
                 <TableCell>Amount</TableCell>
@@ -313,7 +296,7 @@ export default function CustomPaginationActionsTable() {
                 </TableRow>
               )}
             </TableBody>
-            
+
             <TableFooter>
               <TableRow>
                 <TablePagination
@@ -339,177 +322,3 @@ export default function CustomPaginationActionsTable() {
     </div>
   );
 }
-
-// import * as React from "react";
-// import { useState,useEffect } from "react";
-// import Table from "@mui/material/Table";
-// import TableBody from "@mui/material/TableBody";
-// import TableCell from "@mui/material/TableCell";
-// import TableContainer from "@mui/material/TableContainer";
-// import TableHead from "@mui/material/TableHead";
-// import TableRow from "@mui/material/TableRow";
-// import Paper from "@mui/material/Paper";
-// import Collapse from '@mui/material/Collapse';
-// import Box from '@mui/material/Box';
-// import Typography from '@mui/material/Typography';
-// import PropTypes from 'prop-types';
-
-// function createData(date, transaction, rewardType, points, remarks, amountSpent) {
-//   return { date, transaction, rewardType, points, remarks, amountSpent};
-// }
-
-// function Row(props) {
-//   const { row } = props;
-//   const [open, setOpen] = useState(false);
-//   var date = row.transaction_date;
-//   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-//   var split_date = date.split('-');
-//   var transaction_date = split_date[2] + ' ' + months[split_date[1]] + ' ' + split_date[0];
-//   var rewardType;
-//   switch(row.reward_type) {
-//     case "points":
-//       rewardType = "Points";
-//       break;
-//     case "miles":
-//       rewardType = "Miles";
-//       break;
-//     case "cashback":
-//       rewardType = "Cashback";
-//       break;
-//     default:
-//       rewardType = "";
-//   }
-//   return (
-//     <React.Fragment>
-//       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-//         <TableCell align="left">{transaction_date}</TableCell>
-//         <TableCell align="left">{row.merchant_name}</TableCell>
-//         <TableCell align="left">{rewardType}</TableCell>
-//         <TableCell align="left">  <span className="points" >{row.reward_earned}</span></TableCell>
-//         <TableCell align="left" className="Details" onClick={() => setOpen(!open)}>
-//             {open ? "Hide Details" : "View Details"}
-//         </TableCell>
-//       </TableRow>
-
-//       <TableRow>
-//         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={2}>
-//           <Collapse in={open} timeout="auto" unmountOnExit>
-//             <Box sx={{ margin: 1 }}>
-//               <Table size="small" aria-label="purchases">
-//                 <TableBody>
-//                     <TableRow key={row.merchant_name}>
-//                       <TableCell align="left">
-//                         Remarks
-//                       </TableCell>
-//                       <TableCell align="left">{row.remarks}</TableCell>
-//                       <TableCell/>
-//                       <TableCell/>
-//                       <TableCell/>
-//                       <TableCell/>
-//                     </TableRow>
-
-//                     <TableRow key={row.merchant_name}>
-//                       <TableCell align="left">
-//                       Amount Spent
-//                       </TableCell>
-//                       <TableCell align="left">{row.currency} {row.amount}</TableCell>
-//                       <TableCell/>
-//                       <TableCell/>
-//                       <TableCell/>
-//                       <TableCell/>
-//                     </TableRow>
-
-//                 </TableBody>
-//               </Table>
-//             </Box>
-//           </Collapse>
-//         </TableCell>
-//       </TableRow>
-//     </React.Fragment>
-//   );
-// }
-
-// const rows = [
-//   createData("28 August 2022","Bath & Body Works Bonus 1", "Cashback", "+1,000","Get 20% in cashback","$2,000"),
-//   createData("28 August 2022","Flight Booking: LNDN - SIN ", "Redeem",  "-2,134","Get 20% in cashback","$2,000"),
-//   createData("28 August 2022","Bath & Body Works Bonus", "Reward Points",  "+3,000","Get 20% in cashback","$2,000"),
-//   createData("28 August 2022","Flight Booking: KOR - SIN", "Redeem",  "-5,850","Get 20% in cashback","$2,000"),
-// ];
-
-// const makeStyle=(points)=>{
-//   if(points.includes('+'))
-//   {
-//     return {
-//       background: 'rgb(145 254 159 / 47%)',
-//       color: 'green',
-//     }
-//   }
-//   else if(points.includes ('-'))
-//   {
-//     return{
-//       background: '#ffadad8f',
-//       color: 'red',
-//     }
-//   }
-//   else{
-//     return{
-//       background: '#59bfff',
-//       color: 'white',
-//     }
-//   }
-// }
-
-// export default function Transactions({user}) {
-//     // const [open, setOpen] = useState(false);
-//     const [initialData, setInitialData] = useState([]);
-
-//     let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN1ZG9AZ2FicmllbC5kZXYiLCJGaXJzdF9uYW1lIjoiR2FicmllbCIsIkxhc3RfbmFtZSI6Ik9uZyIsIlVpZCI6IjY0MWE4NTk1OGExNTNhMDdiMmVjMzBhZCIsImV4cCI6MTY3OTU0NjEzM30.7KvVMWyFXMMadB6s2uIQBBjzWczuVK-ziMdyOkE8bLs"
-//      //Load data
-//     useEffect(() => {
-//         const sendRequest = async () => {
-//         try{
-//             const response = await fetch('http://localhost:8080/api/v1/transaction', {
-//                 headers: {
-//                     "Authorization" : 'Bearer ' + token,
-//                 }
-//             });
-//             const responseData = await response.json();
-//             setInitialData(responseData.transactions);
-//             console.log(JSON.parse(initialData));
-
-//         }catch(error){
-//             console.log(error.message);
-//         }
-//         }
-//         sendRequest();
-
-//   },[])
-
-//   return (
-//       <div className="Table">
-//       {/* <h3 className="font-poppins font-semibold ss:text-[18px] text-[52px] text-black ss:leading-[90.8px] leading-[75px]">Latest Transactions (Last 30 days)</h3> */}
-//       <TableContainer component={Paper} style={{ boxShadow: "0px 10px 20px 0px #80808029", borderRadius: "0.8rem", marginBottom:50 }}>
-//         <Table aria-label="collapsible table">
-//           <TableHead>
-//             <TableRow>
-//               <TableCell align="left">Date</TableCell>
-//               <TableCell align="left">Transaction</TableCell>
-//               <TableCell align="left">Reward Type</TableCell>
-//               <TableCell align="left">Reward</TableCell>
-//               <TableCell />
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {/* {rows.map((row) => (
-//               <Row key={row.name} row={row} />
-//             ))} */}
-//             {initialData?.map((transaction) => (
-//               <Row key={transaction.merchant_name} row={transaction}/>
-//             ))
-//             }
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//       </div>
-//   );
-// }
