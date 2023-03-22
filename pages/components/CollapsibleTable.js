@@ -41,12 +41,13 @@ function Row(props) {
           {row.transaction_id}
         </TableCell>
         <TableCell>{row.transaction_date}</TableCell>
+        <TableCell>{row.mcc}</TableCell>
         <TableCell>{row.merchant}</TableCell>
         <TableCell>{row.amount}</TableCell>
         <TableCell>{row.points}</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
@@ -60,7 +61,6 @@ function Row(props) {
                     <TableCell>Card Type</TableCell>
                     <TableCell>Currency</TableCell>
                     <TableCell>User ID</TableCell>
-                    <TableCell>MCC</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -72,7 +72,6 @@ function Row(props) {
                     <TableCell>{row.card_type}</TableCell>
                     <TableCell>{row.currency}</TableCell>
                     <TableCell>{row.user_id}</TableCell>
-                    <TableCell>{row.mcc}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -87,10 +86,8 @@ function Row(props) {
                     <TableCell>Campaign ID</TableCell>
                     <TableCell>Merchant</TableCell>
                     <TableCell>Card Type</TableCell>
-                    <TableCell>Description</TableCell>
                     <TableCell>Start Date</TableCell>
                     <TableCell>End Date</TableCell>
-                    <TableCell> Deleted? </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -100,10 +97,19 @@ function Row(props) {
                     </TableCell>
                     <TableCell>{row.campaign.merchant}</TableCell>
                     <TableCell>{row.campaign.card_type}</TableCell>
-                    <TableCell>{row.campaign.description}</TableCell>
                     <TableCell>{row.campaign.start_date}</TableCell>
                     <TableCell>{row.campaign.end_date}</TableCell>
-                    <TableCell>{row.is_deleted ? "Yes" : "No"}</TableCell>
+                  </TableRow>
+                </TableBody>
+                <TableHead>
+                  {" "}
+                  <TableRow >
+                    <TableCell colSpan={7}>Description</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow key={row.campaign.campaign_id}>
+                    <TableCell colSpan={7}>{row.campaign.description}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -225,6 +231,8 @@ export default function CustomPaginationActionsTable() {
 
   const callAPI = async () => {
     console.log("calling api");
+
+    // CHANGE TOKEN METHOD TO GET TOKEN FROM LOCAL STORAGE
     let token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN1ZG9AZ2FicmllbC5kZXYiLCJGaXJzdF9uYW1lIjoiR2FicmllbCIsIkxhc3RfbmFtZSI6Ik9uZyIsIlVpZCI6IjY0MWE4NTk1OGExNTNhMDdiMmVjMzBhZCIsImV4cCI6MTY3OTU0NjEzM30.7KvVMWyFXMMadB6s2uIQBBjzWczuVK-ziMdyOkE8bLs";
     try {
@@ -275,6 +283,7 @@ export default function CustomPaginationActionsTable() {
                   Transaction ID
                 </TableCell>
                 <TableCell>Date</TableCell>
+                <TableCell>MCC</TableCell>
                 <TableCell>Merchant</TableCell>
                 <TableCell>Amount</TableCell>
                 <TableCell>Points</TableCell>
@@ -301,7 +310,7 @@ export default function CustomPaginationActionsTable() {
               <TableRow>
                 <TablePagination
                   rowsPerPageOptions={[10, 25, { label: "All", value: -1 }]}
-                  colSpan={5}
+                  colSpan={7}
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
