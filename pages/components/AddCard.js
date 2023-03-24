@@ -21,7 +21,7 @@ export default function AddCard() {
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAwNjQ1MzN9.jFcFfsp8nznwKJhc9m5QMpmC8wkLwhQtZydCZBRlQH8";
     const endpoint = "http://localhost:8080/api/v1/user/sudo@gabriel.dev";
-
+  
     try {
       const response = await fetch(endpoint, {
         method: "PUT",
@@ -33,9 +33,10 @@ export default function AddCard() {
           cards: [cardId],
         }),
       });
-
+  
       if (response.ok) {
         setOpenSuccess(true);
+        setCardId(""); // Clear the TextField
       } else {
         setOpenError(true);
       }
@@ -44,6 +45,7 @@ export default function AddCard() {
       setOpenError(true);
     }
   };
+  
 
   const handleCloseSuccess = () => {
     setOpenSuccess(false);
