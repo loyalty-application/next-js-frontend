@@ -1,14 +1,12 @@
 import React from "react";
-import SideNavbar from "./components/SideNavbar";
-import Card from "./components/Card";
-import RightBar from "./components/Redeem";
+import Navbar from "./components/Navbar";
+import Card from "./components/Home/Card";
+
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen md:flex ">
-      <div className="h-fit">
-        <SideNavbar />
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
       <div className="w-full h-screen md:w-auto md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
         <div className="bg-gradient-to-r from-gray-100 to-gray-50">
           <div className="p-4">
@@ -21,7 +19,7 @@ const Dashboard = () => {
             <Card />
           </div>
           <div className="flex m-4 space-x-6">
-            <RightBar />
+
           </div>
         </div>
       </div>

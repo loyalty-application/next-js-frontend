@@ -1,13 +1,13 @@
 import React from "react";
 import CollapsibleTable from "./components/CollapsibleTable";
-import SideNavbar from "./components/SideNavbar";
+import Navbar from "./components/Navbar";
 
 const Transactions = () => {
   return (
     <div>
       <div className="md:flex ">
         <div className="md:w-fit fixed md:h-full z-10">
-          <SideNavbar />
+          <Navbar/>
         </div>
         <div className="w-full md:pl-56 h-fit md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
           <div className="p-4">

@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "./Home/Card";
 import Rewards from "./Rewards";
 
 const Container = () => {

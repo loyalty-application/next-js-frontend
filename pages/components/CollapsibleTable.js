@@ -247,7 +247,6 @@ export default function CustomPaginationActionsTable() {
       console.log("inside the try block");
       const data = await res.json();
       setTransactions(data);
-      console.log(data);
     } catch (err) {
       console.log("error");
       console.log(error.message);
