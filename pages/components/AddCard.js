@@ -13,14 +13,44 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export default function AddCard() {
   const router = useRouter();
-  const [open, setOpen] = React.useState(false);
+  const [cardId, setCardId] = React.useState("");
+  const [openSuccess, setOpenSuccess] = React.useState(false);
+  const [openError, setOpenError] = React.useState(false);
 
-  const handleAddCard = () => {
-    setOpen(true);
+  const handleAddCard = async () => {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAwNjQ1MzN9.jFcFfsp8nznwKJhc9m5QMpmC8wkLwhQtZydCZBRlQH8";
+    const endpoint = "http://localhost:8080/api/v1/user/sudo@gabriel.dev";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          cards: [cardId],
+        }),
+      });
+
+      if (response.ok) {
+        setOpenSuccess(true);
+      } else {
+        setOpenError(true);
+      }
+    } catch (error) {
+      console.error(error);
+      setOpenError(true);
+    }
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseSuccess = () => {
+    setOpenSuccess(false);
+  };
+
+  const handleCloseError = () => {
+    setOpenError(false);
   };
 
   return (
@@ -45,6 +75,8 @@ export default function AddCard() {
               id="demo-helper-text-aligned"
               label="Card ID"
               placeholder="Enter Card ID"
+              value={cardId}
+              onChange={(e) => setCardId(e.target.value)}
             />
           </Box>
           <div className="flex justify-center items-center p-4">
@@ -55,18 +87,24 @@ export default function AddCard() {
             >
               Add Card
             </Button>
-            <Dialog open={open} onClose={handleClose}>
-              <DialogTitle>Confirm Add Card</DialogTitle>
+            <Dialog open={openSuccess} onClose={handleCloseSuccess}>
+              <DialogTitle>Success</DialogTitle>
+              <DialogContent>
+                <DialogContentText>Card successfully added!</DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleCloseSuccess}>Close</Button>
+              </DialogActions>
+            </Dialog>
+            <Dialog open={openError} onClose={handleCloseError}>
+              <DialogTitle>Error</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  Are you sure you want to add this card?
+                  An error occurred while adding the card.
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleClose} color="primary">
-                  Add
-                </Button>
+                <Button onClick={handleCloseError}>Close</Button>
               </DialogActions>
             </Dialog>
           </div>
