@@ -39,6 +39,31 @@ const Dashboard = () => {
     if (error) {
       return <div>An error occurred: {error.message}</div>;
     }
+
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Card ID</th>
+            <th>Card PAN</th>
+            <th>Card Type</th>
+            <th>Value Type</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cards.map((card) => (
+            <tr key={card.card_id}>
+              <td>{card.card_id}</td>
+              <td>{card.card_pan}</td>
+              <td>{card.card_type}</td>
+              <td>{card.value_type}</td>
+              <td>{card.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
   };
 
   var settings = {
