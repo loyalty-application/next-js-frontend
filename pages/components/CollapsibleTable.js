@@ -234,7 +234,7 @@ export default function CustomPaginationActionsTable() {
 
     // CHANGE TOKEN METHOD TO GET TOKEN FROM LOCAL STORAGE
     let token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InN1ZG9AZ2FicmllbC5kZXYiLCJGaXJzdF9uYW1lIjoiR2FicmllbCIsIkxhc3RfbmFtZSI6Ik9uZyIsIlVpZCI6IjY0MWE4NTk1OGExNTNhMDdiMmVjMzBhZCIsImV4cCI6MTY3OTU0NjEzM30.7KvVMWyFXMMadB6s2uIQBBjzWczuVK-ziMdyOkE8bLs";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAwNjQ1MzN9.jFcFfsp8nznwKJhc9m5QMpmC8wkLwhQtZydCZBRlQH8";
     try {
       const res = await fetch(`http://localhost:8080/api/v1/transaction`, {
         method: "GET",
@@ -249,7 +249,7 @@ export default function CustomPaginationActionsTable() {
       setTransactions(data);
     } catch (err) {
       console.log("error");
-      console.log(error.message);
+      console.log(err.message);
     }
   };
 
