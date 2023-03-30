@@ -44,7 +44,7 @@ function Row(props) {
         <TableCell>{row.mcc}</TableCell>
         <TableCell>{row.merchant}</TableCell>
         <TableCell>{row.amount}</TableCell>
-        <TableCell>{row.points}</TableCell>
+        <TableCell>{getRewardValue(row.points, row.miles, row.cashback)}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
@@ -60,7 +60,7 @@ function Row(props) {
                     <TableCell>Card PAN</TableCell>
                     <TableCell>Card Type</TableCell>
                     <TableCell>Currency</TableCell>
-                    <TableCell>User ID</TableCell>
+                    
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -71,7 +71,7 @@ function Row(props) {
                     <TableCell>{row.card_pan}</TableCell>
                     <TableCell>{row.card_type}</TableCell>
                     <TableCell>{row.currency}</TableCell>
-                    <TableCell>{row.user_id}</TableCell>
+                  
                   </TableRow>
                 </TableBody>
               </Table>
@@ -91,14 +91,14 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow key={row.campaign.campaign_id}>
+                  <TableRow key={row.campaign_id}>
                     <TableCell component="th" scope="row">
-                      {row.campaign.campaign_id}
+                      {row.campaign_id}
                     </TableCell>
-                    <TableCell>{row.campaign.merchant}</TableCell>
-                    <TableCell>{row.campaign.card_type}</TableCell>
-                    <TableCell>{row.campaign.start_date}</TableCell>
-                    <TableCell>{row.campaign.end_date}</TableCell>
+                    <TableCell>{row.merchant}</TableCell>
+                    <TableCell>{row.card_type}</TableCell>
+                    <TableCell>{row.start_date}</TableCell>
+                    <TableCell>{row.end_date}</TableCell>
                   </TableRow>
                 </TableBody>
                 <TableHead>
@@ -108,8 +108,8 @@ function Row(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow key={row.campaign.campaign_id}>
-                    <TableCell colSpan={7}>{row.campaign.description}</TableCell>
+                  <TableRow key={row.campaign_id}>
+                    <TableCell colSpan={7}>{row.description}</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
@@ -121,33 +121,37 @@ function Row(props) {
   );
 }
 
+const getRewardValue = (points, miles, cashback) => {
+  if (points === 0 && miles === 0 && cashback !== 0) {
+    return `$${cashback.toFixed(2)} cashback`;
+  } else if (points !== 0 && miles === 0 && cashback === 0) {
+    return `${points} points`;
+  } else if (points === 0 && miles !== 0 && cashback === 0) {
+    return `${miles} miles`;
+  } else {
+    return "-";
+  }
+}  
+
 Row.propTypes = {
   row: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    transaction_id: PropTypes.string.isRequired,
+    merchant: PropTypes.string.isRequired,
+    mcc: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
-    campaign: PropTypes.shape({
-      campaign_id: PropTypes.string.isRequired,
-      merchant: PropTypes.string.isRequired,
-      card_type: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      start_date: PropTypes.string.isRequired,
-      end_date: PropTypes.string.isRequired,
-    }).isRequired,
+    transaction_date: PropTypes.string.isRequired,
     card_id: PropTypes.string.isRequired,
     card_pan: PropTypes.string.isRequired,
     card_type: PropTypes.string.isRequired,
-    cashback: PropTypes.number.isRequired,
-    currency: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    is_deleted: PropTypes.bool.isRequired,
-    mcc: PropTypes.string.isRequired,
-    merchant: PropTypes.string.isRequired,
-    miles: PropTypes.number.isRequired,
     points: PropTypes.number.isRequired,
-    transaction_date: PropTypes.string.isRequired,
-    transaction_id: PropTypes.string.isRequired,
-    user_id: PropTypes.string.isRequired,
+    miles: PropTypes.number.isRequired,
+    cashback: PropTypes.number.isRequired,
+    is_deleted: PropTypes.bool.isRequired,
   }).isRequired,
 };
+
 
 // const rows = [].sort((a, b) => (a.date < b.date ? -1 : 1));
 
@@ -234,9 +238,9 @@ export default function CustomPaginationActionsTable() {
 
     // CHANGE TOKEN METHOD TO GET TOKEN FROM LOCAL STORAGE
     let token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODAwNjQ1MzN9.jFcFfsp8nznwKJhc9m5QMpmC8wkLwhQtZydCZBRlQH8";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IkRhbmVsbGUuTydLb25AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IkRhbmVsbGUiLCJMYXN0X25hbWUiOiJPJ0tvbiIsIlVpZCI6IjAwMDA0OGRiLWYzNGYtNDg0MC1hY2EyLTU4ODYzMDQ4YTUzYiIsImV4cCI6MTY4MDI2NTI2MX0.v0QJu4AWpkd5P9-21G-YsKsDIQj5Msi47DX6fDL8B-g";
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/transaction`, {
+      const res = await fetch(`http://34.124.167.172:8080/api/v1/transaction`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -246,7 +250,9 @@ export default function CustomPaginationActionsTable() {
       console.log(res);
       console.log("inside the try block");
       const data = await res.json();
+      console.log(data);
       setTransactions(data);
+      console.log("ending try block")
     } catch (err) {
       console.log("error");
       console.log(err.message);
@@ -267,6 +273,7 @@ export default function CustomPaginationActionsTable() {
     a.transaction_date < b.transaction_date ? -1 : 1
   );
 
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -278,14 +285,14 @@ export default function CustomPaginationActionsTable() {
           <Table aria-label="collapsible table">
             <TableHead>
               <TableRow>
-                <TableCell colSpan={2} align="right">
+                <TableCell colSpan={2} align="center">
                   Transaction ID
                 </TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell>MCC</TableCell>
                 <TableCell>Merchant</TableCell>
                 <TableCell>Amount</TableCell>
-                <TableCell>Points</TableCell>
+                <TableCell>Reward</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
