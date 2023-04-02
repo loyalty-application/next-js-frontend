@@ -3,31 +3,34 @@ import Link from "next/link";
 
 const Login = () => {
   return (
-    <section class="py-10 bg-gray-50 sm:py-16 lg:py-24">
-      <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-          <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+    <section className="py-10 bg-gray-50 sm:py-16 lg:py-24">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
             Welcome Back!
           </h2>
-          <p class="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
+          <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
             Login to your account
           </p>
         </div>
 
-        <div class="relative max-w-md mx-auto mt-8 md:mt-16">
-          <div class="overflow-hidden bg-white rounded-md shadow-md">
-            <div class="px-4 py-6 sm:px-8 sm:py-7">
+        <div className="relative max-w-md mx-auto mt-8 md:mt-16">
+          <div className="overflow-hidden bg-white rounded-md shadow-md">
+            <div className="px-4 py-6 sm:px-8 sm:py-7">
               <form action="#" method="POST">
-                <div class="space-y-5">
+                <div className="space-y-5">
                   <div>
-                    <label for="" class="text-base font-medium text-gray-900">
+                    <label
+                      for=""
+                      className="text-base font-medium text-gray-900"
+                    >
                       {" "}
                       Email address{" "}
                     </label>
-                    <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
-                      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -47,14 +50,17 @@ const Login = () => {
                         name=""
                         id=""
                         placeholder="Enter email to get started"
-                        class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <div class="flex items-center justify-between">
-                      <label for="" class="text-base font-medium text-gray-900">
+                    <div className="flex items-center justify-between">
+                      <label
+                        for=""
+                        className="text-base font-medium text-gray-900"
+                      >
                         {" "}
                         Password{" "}
                       </label>
@@ -62,16 +68,16 @@ const Login = () => {
                       <a
                         href="#"
                         title=""
-                        class="text-sm font-medium text-yellow-500 transition-all duration-200 hover:underline"
+                        className="text-sm font-medium text-blue-800 transition-all duration-200 hover:underline"
                       >
                         {" "}
                         Forgot password?{" "}
                       </a>
                     </div>
-                    <div class="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
-                      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg
-                          class="w-5 h-5"
+                          className="w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -91,7 +97,7 @@ const Login = () => {
                         name=""
                         id=""
                         placeholder="Enter your password"
-                        class="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                        className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                       />
                     </div>
                   </div>
@@ -99,19 +105,19 @@ const Login = () => {
                   <div>
                     <Link
                       href="/Dashboard"
-                      class="inline-flex items-center justify-center px-3 sm:px-5 py-2 text-sm sm:text-base font-semibold transition-all bg-amber-300 text-inherit hover:scale-100 scale-90 duration-300 rounded-lg"
+                      className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-500 bg-[#183483] border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
                     >
                       Log in
                     </Link>
                   </div>
 
-                  <div class="text-center">
-                    <p class="text-base text-gray-600">
+                  <div className="text-center">
+                    <p className="text-base text-gray-600">
                       Don’t have an account?{" "}
                       <Link
                         href="/Signup"
                         title=""
-                        class="font-medium text-yellow-500 transition-all duration-200 hover:underline"
+                        className="font-medium text-blue-800 transition-all duration-200 hover:underline"
                       >
                         Create a free account
                       </Link>

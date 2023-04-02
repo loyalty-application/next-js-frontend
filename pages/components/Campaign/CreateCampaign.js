@@ -1,16 +1,49 @@
 import React from "react";
 import campaign from ".././../../public/images/campaign.png";
+import Navbar from "../Navbar";
+import {
+  TextField,
+  Button,
+  Paper,
+  Grid,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  InputAdornment,
+} from "@mui/material";
+import { useState } from "react";
+
 import Image from "next/image";
 // import DateField from "./BasicDateField";
+
 const CreateCampaign = () => {
+  const [value, setValue] = useState("");
+  const [rewardType, setRewardType] = useState("");
+  const [minSpend, setMinSpend] = useState("");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const handleRewardTypeChange = (event) => {
+    setRewardType(event.target.value);
+  };
+
+  const handleMinSpendChange = (event) => {
+    setMinSpend(event.target.value);
+  };
+
   return (
-    <section className="py-10 bg-[#171D3D] sm:py-16 lg:py-24">
+    <div>
+      <Navbar></Navbar>
+    <section className="py-10 bg-[#F5F6F7] sm:py-16 lg:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-bold leading-tight sm:text-4xl lg:text-5xl">
             Create a new Campaign
           </h2>
-          <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-white">
+          <p className="max-w-xl mt-10 mx-auto text-base leading-relaxed">
             Swipe your way to savings with our campaign credit card today!
           </p>
         </div>
@@ -19,9 +52,7 @@ const CreateCampaign = () => {
           <div className="grid items-stretch grid-cols-1 lg:grid-cols-5">
             <div className="lg:col-span-3">
               <div className="p-6 sm:p-10">
-                <h3 className="text-2xl font-semibold text-black">
-                  Send us a message
-                </h3>
+                <h3 className="text-2xl font-semibold text-black">Campaign</h3>
 
                 <form action="#" method="POST" class="mt-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
@@ -31,14 +62,42 @@ const CreateCampaign = () => {
                         className="text-base font-medium text-gray-900"
                       >
                         {" "}
-                        Your name{" "}
+                        Card Type{" "}
+                      </label>
+                      <div className="mt-2.5 relative">
+                        <FormControl className="w-full">
+                          <InputLabel>Choose a card type</InputLabel>
+                          <Select value={value} onChange={handleChange}>
+                            <MenuItem value={"scis_freedom"}>
+                              SCIS Freedom
+                            </MenuItem>
+                            <MenuItem value={"scis_platinummiles"}>
+                              SCIS PlatinumMiles
+                            </MenuItem>
+                            <MenuItem value={"scis_premiummiles"}>
+                              SCIS PremiumMiles
+                            </MenuItem>
+                            <MenuItem value={"scis_shopping"}>
+                              SCIS Shopping
+                            </MenuItem>
+                          </Select>
+                        </FormControl>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for=""
+                        className="text-base font-medium text-gray-900"
+                      >
+                        {" "}
+                        Merchant{" "}
                       </label>
                       <div className="mt-2.5 relative">
                         <input
                           type="text"
                           name=""
                           id=""
-                          placeholder=""
+                          placeholder="Merchant name"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                         />
                       </div>
@@ -50,16 +109,17 @@ const CreateCampaign = () => {
                         className="text-base font-medium text-gray-900"
                       >
                         {" "}
-                        Your email{" "}
+                        Rewards{" "}
                       </label>
                       <div className="mt-2.5 relative">
-                        <input
-                          type="email"
-                          name=""
-                          id=""
-                          placeholder=""
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                        />
+                        <FormControl className="w-full">
+                          <InputLabel>Choose a reward type</InputLabel>
+                          <Select value={value} onChange={handleChange}>
+                            <MenuItem value={"cashback"}>Cashback</MenuItem>
+                            <MenuItem value={"miles"}>Miles</MenuItem>
+                            <MenuItem value={"points"}>Points</MenuItem>
+                          </Select>
+                        </FormControl>
                       </div>
                     </div>
 
@@ -69,44 +129,32 @@ const CreateCampaign = () => {
                         className="text-base font-medium text-gray-900"
                       >
                         {" "}
-                        Phone number{" "}
+                        Minimum spend amount{" "}
                       </label>
                       <div className="mt-2.5 relative">
-                        <input
-                          type="tel"
+                        <TextField
+                          type="number"
                           name=""
                           id=""
-                          placeholder=""
+                          placeholder="Minimum spend amount"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                $
+                              </InputAdornment>
+                            ),
+                          }}
+                          value={minSpend}
+                          onChange={handleMinSpendChange}
                         />
                       </div>
                     </div>
-
-                    <div>
-                      <label
-                        for=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        {" "}
-                        Company name{" "}
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <input
-                          type="text"
-                          name=""
-                          id=""
-                          placeholder=""
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* <DateField label="Basic date picker" /> */}
 
                     <div className="sm:col-span-2">
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
+                        className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-500 bg-[#183483] border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
                       >
                         Create Campaign
                       </button>
@@ -118,7 +166,7 @@ const CreateCampaign = () => {
 
             <div className="bg-gray-100 lg:col-span-2">
               <div className="h-full p-6 sm:p-10">
-                <div className="flex flex-col justify-center h-full">
+                <div className="flex flex-col justify-center h-full bg-[#F5F6F7]">
                   <Image className="p-16" src={campaign}></Image>
                 </div>
               </div>
@@ -127,8 +175,8 @@ const CreateCampaign = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
 export default CreateCampaign;
-
