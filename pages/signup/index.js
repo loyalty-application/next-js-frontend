@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Router from 'next/router';
 import card from "../../public/images/card.png";
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuth } from '../../hooks/useAuth'
 import { useState } from 'react'
 
 

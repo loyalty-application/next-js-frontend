@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Collapse } from '@mui/material';
-import { CARD_TYPE } from '../../constants/CardTypes'
+import { CARD_TYPE } from '../../config/CardTypes'
 
 const getRewardValue = (points, miles, cashback) => {
     if (points === 0 && miles === 0 && cashback !== 0) {

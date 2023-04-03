@@ -1,5 +1,5 @@
 import { TableBody, TableContainer, Table, TableHead, TableRow, TableCell, Paper } from "@mui/material";
-import { CARD_TYPE } from "../../constants/CardTypes";
+import { CARD_TYPE } from "../../config/CardTypes";
 
 const CardDetails = ({ cards }) => {
     return (

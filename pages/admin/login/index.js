@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Router from 'next/router';
 
-import { useAuth } from '../../../contexts/AuthContext'
+import { useAuth } from '../../../hooks/useAuth'
 
 const AdminLogin = () => {
 

@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import CustomerLayout from "../../../components/layouts/CustomerLayout"
-import { CARD_TYPE } from "../../../constants/CardTypes";
+import { CARD_TYPE } from "../../../config/CardTypes";
 // import DateField from "./BasicDateField";
 
 const AdminCampaignPage = () => {

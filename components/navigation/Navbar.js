@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Router } from "next/router";
 import React, { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 
 
 const Navbar = () => {
