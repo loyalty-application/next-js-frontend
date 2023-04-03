@@ -2,9 +2,6 @@ import React from "react";
 import campaign from "../../public/images/campaign.png";
 import {
     TextField,
-    Button,
-    Paper,
-    Grid,
     MenuItem,
     FormControl,
     InputLabel,
@@ -14,24 +11,14 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import CustomerLayout from "../../components/layouts/CustomerLayout"
+import { CARD_TYPE } from "../../constants/CardTypes";
 // import DateField from "./BasicDateField";
 
 const CampaignPage = () => {
-    const [value, setValue] = useState("");
+    const [cardType, setCardType] = useState("");
     const [rewardType, setRewardType] = useState("");
     const [minSpend, setMinSpend] = useState("");
-
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
-
-    const handleRewardTypeChange = (event) => {
-        setRewardType(event.target.value);
-    };
-
-    const handleMinSpendChange = (event) => {
-        setMinSpend(event.target.value);
-    };
+    const [merchantName, setMerchantName] = useState("");
 
     return (
         <div>
@@ -52,67 +39,59 @@ const CampaignPage = () => {
                                 <div className="p-6 sm:p-10">
                                     <h3 className="text-2xl font-semibold text-black">Campaign</h3>
 
-                                    <form action="#" method="POST" class="mt-8">
+                                    <form action="#" method="POST" className="mt-8">
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                                             <div>
                                                 <label
-                                                    for=""
+                                                    htmlFor="cardType"
                                                     className="text-base font-medium text-gray-900"
                                                 >
-                                                    {" "}
-                                                    Card Type{" "}
+                                                    Card Type
                                                 </label>
                                                 <div className="mt-2.5 relative">
-                                                    <FormControl className="w-full">
+                                                    <FormControl id="cardType" name="cardType" className="w-full">
                                                         <InputLabel>Choose a card type</InputLabel>
-                                                        <Select value={value} onChange={handleChange}>
-                                                            <MenuItem value={"scis_freedom"}>
-                                                                SCIS Freedom
-                                                            </MenuItem>
-                                                            <MenuItem value={"scis_platinummiles"}>
-                                                                SCIS PlatinumMiles
-                                                            </MenuItem>
-                                                            <MenuItem value={"scis_premiummiles"}>
-                                                                SCIS PremiumMiles
-                                                            </MenuItem>
-                                                            <MenuItem value={"scis_shopping"}>
-                                                                SCIS Shopping
-                                                            </MenuItem>
+                                                        <Select value={cardType} onChange={(e) => setCardType(e.target.value)}>
+                                                            {
+                                                                Object.keys(CARD_TYPE).map((k) => {
+                                                                    return <MenuItem key={k} value={k}>{CARD_TYPE[k]}</MenuItem>
+                                                                })
+                                                            }
                                                         </Select>
                                                     </FormControl>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label
-                                                    for=""
+                                                    htmlFor="merchantName"
                                                     className="text-base font-medium text-gray-900"
                                                 >
-                                                    {" "}
-                                                    Merchant{" "}
+                                                    Merchant
                                                 </label>
                                                 <div className="mt-2.5 relative">
                                                     <input
                                                         type="text"
-                                                        name=""
-                                                        id=""
+                                                        name="merchantName"
+                                                        id="merchantName"
                                                         placeholder="Merchant name"
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                                        value={merchantName}
+                                                        onChange={(e) => setMerchantName(e.target.value)}
                                                     />
                                                 </div>
                                             </div>
 
                                             <div>
                                                 <label
-                                                    for=""
+                                                    htmlFor="rewardType"
                                                     className="text-base font-medium text-gray-900"
                                                 >
-                                                    {" "}
-                                                    Rewards{" "}
+                                                    Rewards
                                                 </label>
                                                 <div className="mt-2.5 relative">
-                                                    <FormControl className="w-full">
+                                                    <FormControl id="rewardType" name="rewardType" className="w-full">
                                                         <InputLabel>Choose a reward type</InputLabel>
-                                                        <Select value={value} onChange={handleChange}>
+                                                        <Select value={rewardType} onChange={(e) => setRewardType(e.target.value)}>
                                                             <MenuItem value={"cashback"}>Cashback</MenuItem>
                                                             <MenuItem value={"miles"}>Miles</MenuItem>
                                                             <MenuItem value={"points"}>Points</MenuItem>
@@ -123,11 +102,10 @@ const CampaignPage = () => {
 
                                             <div>
                                                 <label
-                                                    for=""
+                                                    htmlFor=""
                                                     className="text-base font-medium text-gray-900"
                                                 >
-                                                    {" "}
-                                                    Minimum spend amount{" "}
+                                                    Minimum spend amount
                                                 </label>
                                                 <div className="mt-2.5 relative">
                                                     <TextField
@@ -144,7 +122,7 @@ const CampaignPage = () => {
                                                             ),
                                                         }}
                                                         value={minSpend}
-                                                        onChange={handleMinSpendChange}
+                                                        onChange={(e) => setMinSpend(e.target.value)}
                                                     />
                                                 </div>
                                             </div>
@@ -165,7 +143,7 @@ const CampaignPage = () => {
                             <div className="bg-gray-100 lg:col-span-2">
                                 <div className="h-full p-6 sm:p-10">
                                     <div className="flex flex-col justify-center h-full bg-[#F5F6F7]">
-                                        <Image className="p-16" src={campaign}></Image>
+                                        <Image alt="campaign" className="p-16" src={campaign}></Image>
                                     </div>
                                 </div>
                             </div>

@@ -24,9 +24,9 @@ export default function CustomPaginationActionsTable({ transactions }) {
         if (points === 0 && miles === 0 && cashback !== 0) {
             return `$${cashback.toFixed(2)} cashback`;
         } else if (points !== 0 && miles === 0 && cashback === 0) {
-            return `${points} points`;
+            return `${points.toFixed(2)} points`;
         } else if (points === 0 && miles !== 0 && cashback === 0) {
-            return `${miles} miles`;
+            return `${miles.toFixed(2)} miles`;
         } else {
             return "-";
         }
@@ -38,18 +38,18 @@ export default function CustomPaginationActionsTable({ transactions }) {
                     <TableHead>
                         <TableRow>
                             <TableCell>{"Transaction ID"}</TableCell>
-                            <TableCell >{"Transaction Date"}</TableCell>
-                            <TableCell >{"Amount"}</TableCell>
+                            <TableCell align="left">{"Transaction Date"}</TableCell>
+                            <TableCell align="right">{"Amount"}</TableCell>
                             <TableCell >{"Merchant"}</TableCell>
-                            <TableCell >{"Reward"}</TableCell>
+                            <TableCell align="right">{"Reward"}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>{transactions ? transactions.map((transaction) => (<TableRow key={transaction.id}>
                         <TableCell component="th" scope="row">{transaction.transaction_id}</TableCell>
-                        <TableCell>{transaction.transaction_date}</TableCell>
-                        <TableCell>{transaction.amount}</TableCell>
+                        <TableCell align="left">{transaction.transaction_date}</TableCell>
+                        <TableCell align="right">{transaction.amount}</TableCell>
                         <TableCell>{transaction.merchant}</TableCell>
-                        <TableCell>{getRewardValue(transaction.points, transaction.miles, transaction.cashback)}</TableCell>
+                        <TableCell align="right">{getRewardValue(transaction.points, transaction.miles, transaction.cashback)}</TableCell>
                     </TableRow>)) : <TableRow></TableRow>}
                     </TableBody>
                 </Table>

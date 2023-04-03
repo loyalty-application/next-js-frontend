@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../../contexts/AuthContext";
 import api from "../../config/api";
-import UserTransactions from "../../components/UserTransactions";
-import CardDetails from "../../components/CardDetails";
 import Skeleton from "react-loading-skeleton";
 import CustomerLayout from "../../components/layouts/CustomerLayout"
-
+import UserTransactions from "../../components/dashboard/UserTransactions";
+import CardDetails from "../../components/dashboard/CardDetails";
+import CumulativeTotals from "../../components/dashboard/CumulativeTotals"
 
 const DashboardPage = () => {
     // login state
@@ -92,28 +92,20 @@ const DashboardPage = () => {
                     <div className="flex flex-row justify-between">
                         {cards.map((card) => (
                             <Cards
+                                key={card.card_id}
                                 expiry=""
                                 name={(user.first_name + " " + user.last_name).toUpperCase()}
                                 number={card.card_pan}
 
                             />))}
-                        <Cards
-                            cvc="212"
-                            expiry="07/26"
-                            name="BERNICE TEO"
-                            number="2334 5678 9012 3456"
-                            preview={true}
-                        />
-                        <Cards
-                            cvc="123"
-                            expiry="07/26"
-                            name="BERNICE TEO"
-                            number="6234 5678 9012 3456"
-                            preview={true}
-                        />
                     </div>
-                    <CardDetails totals={totals} cards={cards} userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
+
+                    <div className="grid grid-cols-2 gap-4 bg-[#F7F8F9]">
+                        <CardDetails cards={cards} />
+                        <CumulativeTotals totals={totals} />
+                    </div>
                     <UserTransactions transactions={transactions} />
+
                 </div>
             </div>
         </div> : <Skeleton count={10}></Skeleton>

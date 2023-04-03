@@ -4,14 +4,14 @@ import Router from 'next/router';
 
 import { useAuth } from '../../contexts/AuthContext'
 
-const LoginPage = () => {
+const AdminLogin = () => {
 
     const { user, loading, login } = useAuth()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     if (user) {
-        Router.replace('/dashboard')
+        Router.replace('/admin')
     }
 
     const handleLogin = () => {
@@ -152,4 +152,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default AdminLogin;

@@ -31,11 +31,6 @@ const Navbar = () => {
                                 Home
                             </li>
                         </Link>
-                        <Link href="/dashboard/add-card">
-                            <li className="mx-5 hover:underline text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
-                                Add Card
-                            </li>
-                        </Link>
                         <button
                             onClick={(e) => { e.preventDefault(); handleLogout() }}
                         >

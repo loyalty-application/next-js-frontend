@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Router from 'next/router';
-import card from "../public/images/card.png";
-import { useAuth } from '../contexts/AuthContext'
+import card from "../../public/images/card.png";
+import { useAuth } from '../../contexts/AuthContext'
 import { useState } from 'react'
 
 
-const Signup = () => {
+const SignupPage = () => {
 
     const { user, loading, login, signup } = useAuth()
     const [email, setEmail] = useState('')
@@ -31,7 +31,7 @@ const Signup = () => {
             return;
         }
 
-        signup(email, password, fullName)
+        signup(email, password)
     }
 
     return (
@@ -55,24 +55,6 @@ const Signup = () => {
 
                         <form action="#" method="POST" className="mt-8">
                             <div className="space-y-5">
-                                {
-                                    //<div>
-                                    //<label htmlFor="fullName" className="text-base font-medium text-gray-900">
-                                    //Full Name
-                                    //</label>
-                                    //<div className="mt-2.5">
-                                    //<input
-                                    //type="text"
-                                    //name="fullName"
-                                    //id="fullName"
-                                    //placeholder="Enter your full name"
-                                    //className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-yellow-500 focus:bg-white caret-yellow-600"
-                                    //value={fullName}
-                                    //onChange={(e) => setFullName(e.target.value)}
-                                    ///>
-                                    //</div>
-                                    //</div>
-                                }
                                 <div>
                                     <label for="email" className="text-base font-medium text-gray-900">
                                         Email address
@@ -175,4 +157,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignupPage;
