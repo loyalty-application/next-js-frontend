@@ -5,8 +5,15 @@ import cards from ".././public/images/card.png";
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import LockIcon from '@mui/icons-material/Lock';
+import { useAuth } from "../contexts/AuthContext";
 
 const Landing = () => {
+    const { user, loading, logout } = useAuth()
+
+    const handleLogOut = () => {
+        logout()
+    }
+
     return (
         <div className="bg-gradient-to-b from-[#191D40] relative to-[#08201D]">
             <header className="absolute inset-x-0 top-0 z-10 w-full">
@@ -28,15 +35,15 @@ const Landing = () => {
                                 {" "}
                                 Home{" "}
                             </Link>
-                            <Link
-                                href="/Login"
+                            <button
                                 title=""
                                 className="btn hover:btn:hover"
                                 role="button"
+                                onClick={e => { e.preventDefault(); handleLogOut() }
+                                }
                             >
-                                {" "}
-                                Log In{" "}
-                            </Link>
+                                {user ? "Log Out" : "Log In"}
+                            </button>
                         </div>
 
                         <button

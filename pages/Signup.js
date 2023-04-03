@@ -3,7 +3,28 @@ import Link from "next/link";
 import Image from "next/image";
 import card from ".././public/images/card.png";
 
+import Router from 'next/router';
+import { useAuth } from '../contexts/AuthContext'
+import { useState } from 'react'
+
+
 const Signup = () => {
+
+    const { user, loading, login, signup } = useAuth()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [fullName, setFullName] = useState('')
+
+    const [toc, setToc] = useState(false)
+
+    if (user) {
+        Router.replace('/Dashboard')
+    }
+
+    const handleSignUp = () => {
+        signup(email, password, fullName)
+    }
+
     return (
         <section className="bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -26,25 +47,25 @@ const Signup = () => {
                         <form action="#" method="POST" className="mt-8">
                             <div className="space-y-5">
                                 <div>
-                                    <label for="" className="text-base font-medium text-gray-900">
-                                        {" "}
-                                        Full Name{" "}
+                                    <label htmlFor="fullName" className="text-base font-medium text-gray-900">
+                                        Full Name
                                     </label>
                                     <div className="mt-2.5">
                                         <input
                                             type="text"
-                                            name=""
-                                            id=""
+                                            name="fullName"
+                                            id="fullName"
                                             placeholder="Enter your full name"
                                             className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-yellow-500 focus:bg-white caret-yellow-600"
+                                            value={fullName}
+                                            onChange={(e) => setFullName(e.target.value)}
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label for="" className="text-base font-medium text-gray-900">
-                                        {" "}
-                                        Email address{" "}
+                                    <label for="email" className="text-base font-medium text-gray-900">
+                                        Email address
                                     </label>
                                     <div className="mt-2.5">
                                         <input
@@ -53,22 +74,25 @@ const Signup = () => {
                                             id="email"
                                             placeholder="Enter email to get started"
                                             className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-yellow-500 focus:bg-white caret-yellow-600"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label for="" className="text-base font-medium text-gray-900">
-                                        {" "}
-                                        Password{" "}
+                                    <label for="password" className="text-base font-medium text-gray-900">
+                                        Password
                                     </label>
                                     <div className="mt-2.5">
                                         <input
                                             type="password"
-                                            name="name"
+                                            name="password"
                                             id="password"
                                             placeholder="Enter your password"
                                             className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-yellow-500 focus:bg-white caret-yellow-600"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -79,6 +103,8 @@ const Signup = () => {
                                         name="agree"
                                         id="agree"
                                         className="w-5 h-5  text-blue-800 bg-white border-gray-200 rounded"
+                                        value={toc}
+                                        onChange={e => setToc(e.target.value)}
                                     />
 
                                     <label
@@ -105,12 +131,15 @@ const Signup = () => {
                                 </div>
 
                                 <div>
-                                    <Link
-                                        href="/Dashboard"
+                                    <button
                                         className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-500 bg-[#183483] border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            handleSignUp()
+                                        }}
                                     >
                                         Create account
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -119,7 +148,7 @@ const Signup = () => {
 
                 <div className="flex items-center justify-center px-4 py-10 sm:py-16 lg:py-24 bg-gray-50 sm:px-6 lg:px-8">
                     <div>
-                        <Image src={card} />
+                        <Image alt="card" src={card} />
 
                         <div className="w-full max-w-md mx-auto xl:max-w-xl">
                             <h3 className="text-2xl font-bold text-center text-black">
