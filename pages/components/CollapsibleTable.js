@@ -238,9 +238,9 @@ export default function CustomPaginationActionsTable() {
 
     // CHANGE TOKEN METHOD TO GET TOKEN FROM LOCAL STORAGE
     let token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IkRhbmVsbGUuTydLb25AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IkRhbmVsbGUiLCJMYXN0X25hbWUiOiJPJ0tvbiIsIlVpZCI6IjAwMDA0OGRiLWYzNGYtNDg0MC1hY2EyLTU4ODYzMDQ4YTUzYiIsImV4cCI6MTY4MDI2NTI2MX0.v0QJu4AWpkd5P9-21G-YsKsDIQj5Msi47DX6fDL8B-g";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6IkRhbmVsbGUuTydLb25AZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IkRhbmVsbGUiLCJMYXN0X25hbWUiOiJPJ0tvbiIsIlVpZCI6IjAwMDA0OGRiLWYzNGYtNDg0MC1hY2EyLTU4ODYzMDQ4YTUzYiIsImV4cCI6MTY4MDU4ODM2OX0.tgtRd6hUQ04gJUxGHbiY6HvcNSb6e8e5bMa_tq09lRw";
     try {
-      const res = await fetch(`http://34.124.167.172:8080/api/v1/transaction`, {
+      const res = await fetch(`http://35.187.241.140:8080/api/v1/transaction`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
