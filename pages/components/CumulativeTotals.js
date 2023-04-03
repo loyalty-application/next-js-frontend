@@ -3,8 +3,6 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-
-
 const CumulativeTotals = ({ userId }) => {
   const [totals, setTotals] = useState(null);
   const BEARER_TOKEN =
@@ -42,15 +40,13 @@ const CumulativeTotals = ({ userId }) => {
         flexDirection: "column",
         paddingTop: "40px",
         paddingBottom: "40px",
-        paddingRight: "40px"
+        paddingRight: "40px",
       }}
     >
       <div style={{ flex: 1 }}>
         <Card style={{ minWidth: "150px" }}>
           <CardContent>
-            <Typography color="blue" gutterBottom>
-              Points
-            </Typography>
+            <Typography gutterBottom>Points</Typography>
             <Typography variant="h6" component="h5">
               {totals.points}
             </Typography>
@@ -60,9 +56,7 @@ const CumulativeTotals = ({ userId }) => {
       <div style={{ flex: 1 }}>
         <Card style={{ minWidth: "150px" }}>
           <CardContent>
-            <Typography color="blue" gutterBottom>
-              Miles
-            </Typography>
+            <Typography gutterBottom>Miles</Typography>
             <Typography variant="h6" component="h6">
               {totals.miles}
             </Typography>
@@ -72,9 +66,7 @@ const CumulativeTotals = ({ userId }) => {
       <div style={{ flex: 1 }}>
         <Card style={{ minWidth: "100px" }}>
           <CardContent>
-            <Typography color="blue" gutterBottom>
-              Cashback
-            </Typography>
+            <Typography gutterBottom>Cashback</Typography>
             <Typography variant="h6" component="h6">
               {totals.cashback}
             </Typography>

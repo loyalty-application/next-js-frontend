@@ -14,6 +14,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import CumulativeTotals from "./components/CumulativeTotals";
+import UserTransactions from "./components/UserTransactions"
+
 
 const Dashboard = () => {
   const API_URL = "http://35.187.241.140:8080/api/v1/card/user/";
@@ -124,6 +126,7 @@ const Dashboard = () => {
             />
           </div>
           <CardDetails userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
+          <UserTransactions userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2"  />
         </div>
       </div>
     </div>
