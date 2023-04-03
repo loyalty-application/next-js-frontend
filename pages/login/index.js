@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Router from 'next/router';
 
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext'
 
-const Login = () => {
+const LoginPage = () => {
 
     const { user, loading, login } = useAuth()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     if (user) {
-        Router.replace('/Dashboard')
+        Router.replace('/dashboard')
     }
 
     const handleLogin = () => {
@@ -154,4 +154,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

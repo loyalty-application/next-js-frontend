@@ -1,17 +1,17 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 import { useState, useEffect } from "react";
-import UserTransactions from "./components/UserTransactions";
-import { useAuth } from "../contexts/AuthContext";
-import api from "../config/api";
 import { useRouter } from "next/router";
-import CardDetails from "./components/CardDetails";
+import { useAuth } from "../../contexts/AuthContext";
+import api from "../../config/api";
+import UserTransactions from "../../components/UserTransactions";
+import CardDetails from "../../components/CardDetails";
 import Skeleton from "react-loading-skeleton";
+import CustomerLayout from "../../components/layouts/CustomerLayout"
 
 
-const Dashboard = () => {
+const DashboardPage = () => {
     // login state
     const { user, loading } = useAuth()
 
@@ -34,7 +34,7 @@ const Dashboard = () => {
     // init state
     useEffect(() => {
         if (!user) {
-            router.replace('/Login')
+            router.replace('/login')
         }
         if (!loading && user && user.user_id) {
             fetchCards(user.user_id)
@@ -82,7 +82,6 @@ const Dashboard = () => {
 
     return (
         user ? <div className="min-h-screen">
-            <Navbar />
             <div>
                 <div className="w-full h-screen md:w-auto md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
                     <div className="p-4">
@@ -121,5 +120,12 @@ const Dashboard = () => {
     );
 };
 
+DashboardPage.getLayout = function getLayout(page) {
+    return (
+        <CustomerLayout>
+            {page}
+        </CustomerLayout>
+    )
+}
 
-export default Dashboard;
+export default DashboardPage;

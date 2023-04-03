@@ -3,10 +3,11 @@ import "tailwindcss/tailwind.css";
 import { AuthProvider, ProtectRoute } from '../contexts/AuthContext'
 
 function MyApp({ Component, pageProps }) {
+    const getLayout = Component.getLayout || ((page) => page)
 
     return <AuthProvider>
         <ProtectRoute>
-            <Component {...pageProps} />
+            {getLayout(<Component {...pageProps} />)}
         </ProtectRoute>
     </AuthProvider>
 }
