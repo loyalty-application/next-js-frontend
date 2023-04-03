@@ -12,7 +12,7 @@ import CustomerLayout from "../../../components/layouts/CustomerLayout"
 import TransactionRow from "../../../components/transactions/TransactionRow";
 import api from "../../../config/api";
 
-const TransactionPage = () => {
+const AdminTransactionPage = () => {
 
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -117,7 +117,7 @@ const TransactionPage = () => {
     );
 };
 
-TransactionPage.getLayout = function getLayout(page) {
+AdminTransactionPage.getLayout = function getLayout(page) {
     return (
         <CustomerLayout>
             {page}
@@ -126,4 +126,4 @@ TransactionPage.getLayout = function getLayout(page) {
 }
 
 
-export default TransactionPage;
+export default AdminTransactionPage;

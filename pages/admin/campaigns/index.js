@@ -14,7 +14,7 @@ import CustomerLayout from "../../../components/layouts/CustomerLayout"
 import { CARD_TYPE } from "../../../constants/CardTypes";
 // import DateField from "./BasicDateField";
 
-const CampaignPage = () => {
+const AdminCampaignPage = () => {
     const [cardType, setCardType] = useState("");
     const [rewardType, setRewardType] = useState("");
     const [minSpend, setMinSpend] = useState("");
@@ -155,7 +155,7 @@ const CampaignPage = () => {
     );
 };
 
-CampaignPage.getLayout = function getLayout(page) {
+AdminCampaignPage.getLayout = function getLayout(page) {
     return (
         <CustomerLayout>
             {page}
@@ -163,4 +163,4 @@ CampaignPage.getLayout = function getLayout(page) {
     )
 }
 
-export default CampaignPage;
+export default AdminCampaignPage;
