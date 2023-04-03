@@ -1,5 +1,5 @@
 import React from "react";
-import campaign from "../../public/images/campaign.png";
+import campaign from "../../../public/images/campaign.png";
 import {
     TextField,
     MenuItem,
@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import Image from "next/image";
-import CustomerLayout from "../../components/layouts/CustomerLayout"
-import { CARD_TYPE } from "../../constants/CardTypes";
+import CustomerLayout from "../../../components/layouts/CustomerLayout"
+import { CARD_TYPE } from "../../../constants/CardTypes";
 // import DateField from "./BasicDateField";
 
 const CampaignPage = () => {

@@ -1,4 +1,3 @@
-import CustomerLayout from "../../components/layouts/CustomerLayout"
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,8 +8,9 @@ import TableFooter from "@mui/material/TableFooter";
 import React, { useState, useEffect } from "react";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import TransactionRow from "../../components/transactions/TransactionRow";
-import api from "../../config/api";
+import CustomerLayout from "../../../components/layouts/CustomerLayout"
+import TransactionRow from "../../../components/transactions/TransactionRow";
+import api from "../../../config/api";
 
 const TransactionPage = () => {
 
