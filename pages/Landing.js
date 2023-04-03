@@ -8,21 +8,21 @@ import LockIcon from '@mui/icons-material/Lock';
 
 const Landing = () => {
   return (
-    <div class="bg-gradient-to-b from-[#191D40] relative to-[#08201D]">
-      <header class="absolute inset-x-0 top-0 z-10 w-full">
-        <div class="px-4 mx-auto sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16 lg:h-20">
-            <div class="flex-shrink-0">
-              <a href="#" title="" class="flex">
+    <div className="bg-gradient-to-b from-[#191D40] relative to-[#08201D]">
+      <header className="absolute inset-x-0 top-0 z-10 w-full">
+        <div className="px-4 mx-auto sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            <div className="flex-shrink-0">
+              <a href="#" title="" className="flex">
                 <h1 className="text-white text-2xl font-bold">ASCLoyalty</h1>
               </a>
             </div>
 
-            <div class="lg:flex lg:items-center lg:justify-end lg:space-x-6 sm:ml-auto">
+            <div className="lg:flex lg:items-center lg:justify-end lg:space-x-6 sm:ml-auto">
               <Link
                 href="/Dashboard"
                 title=""
-                class="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white "
+                className="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white "
                 role="button"
               >
                 {" "}
@@ -41,10 +41,10 @@ const Landing = () => {
 
             <button
               type="button"
-              class="inline-flex p-2 ml-1 text-white transition-all duration-200 rounded-md sm:ml-4 lg:hidden focus:bg-gray-800 hover:bg-gray-800"
+              className="inline-flex p-2 ml-1 text-white transition-all duration-200 rounded-md sm:ml-4 lg:hidden focus:bg-gray-800 hover:bg-gray-800"
             >
               <svg
-                class="block w-6 h-6"
+                className="block w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ const Landing = () => {
               </svg>
 
               <svg
-                class="hidden w-6 h-6"
+                className="hidden w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -77,33 +77,33 @@ const Landing = () => {
         </div>
       </header>
 
-      <section class="relative w-full lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
-          <div class="max-w-xl mx-auto text-center">
-            <h1 class="text-4xl font-bold sm:text-6xl">
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-white">
+      <section className="relative w-full lg:min-h-[1000px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
+          <div className="max-w-xl mx-auto text-center">
+            <h1 className="text-4xl font-bold sm:text-6xl">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-white">
                 {" "}
                 Transaction processing made easy.{" "}
               </span>
             </h1>
-            <p class="mt-5 text-base text-white sm:text-xl">
+            <p className="mt-5 text-base text-white sm:text-xl">
               Process millions of data, launch and manage campaigns.
             </p>
 
-            <div class="grid grid-cols-1 px-20 mt-12 text-left gap-x-12 gap-y-8 sm:grid-cols-3 sm:px-0">
-              <div class="flex items-center">
+            <div className="grid grid-cols-1 px-20 mt-12 text-left gap-x-12 gap-y-8 sm:grid-cols-3 sm:px-0">
+              <div className="flex items-center">
                 <ElectricBoltIcon style={{fill: "gold"}}/>
-                <p class="ml-3 text-sm text-white">Performant</p>
+                <p className="ml-3 text-sm text-white">Performant</p>
               </div>
 
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <QueryBuilderIcon style={{fill: "gold"}}/>
-                <p class="ml-3 text-sm text-white">Highly available</p>
+                <p className="ml-3 text-sm text-white">Highly available</p>
               </div>
 
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <LockIcon style={{fill: "gold"}}/>
-                <p class="ml-3 text-sm text-white">Secured & safe</p>
+                <p className="ml-3 text-sm text-white">Secured & safe</p>
               </div>
             </div>
           </div>

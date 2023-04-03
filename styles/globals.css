@@ -36,6 +36,10 @@ ul {
   list-style: none;
 }
 
+.label-width {
+  width: 120px; /* adjust the width as needed */
+}
+
 .btn {
   /* Base styles */
   display: inline-flex;
