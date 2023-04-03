@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import cards from ".././public/images/card.png";
@@ -6,6 +6,8 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import LockIcon from '@mui/icons-material/Lock';
 import { useAuth } from "../contexts/AuthContext";
+import { Router } from "next/router";
+import Skeleton from "react-loading-skeleton";
 
 const Landing = () => {
     const { user, loading, logout } = useAuth()
@@ -13,6 +15,7 @@ const Landing = () => {
     const handleLogOut = () => {
         logout()
     }
+
 
     return (
         <div className="bg-gradient-to-b from-[#191D40] relative to-[#08201D]">

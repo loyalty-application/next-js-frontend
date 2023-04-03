@@ -1,14 +1,23 @@
 import Link from "next/link";
 import { Router } from "next/router";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
 import { useAuth } from "../../contexts/AuthContext";
 
 
 const Navbar = () => {
-    const { user, login, logout } = useAuth()
+    const { user, loading, logout } = useAuth()
     const handleLogout = () => {
         logout()
     }
+
+    useEffect(() => {
+        if (!user) {
+            Router.replace('/Login');
+        }
+        if (!loading) { }
+    }, [user, loading])
+
     return (
         <div className="w-screen h-20 shadow-xl z-[100] sticky top-0 bg-gradient-to-r from-gray-100 to-gray-50 px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center max-w-full h-full px-2 2xl:px-16">

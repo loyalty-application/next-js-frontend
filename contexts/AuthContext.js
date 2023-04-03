@@ -39,10 +39,10 @@ export const AuthProvider = ({ children }) => {
             const token = res.data.token
             const currUser = res.data
 
-            if (token) {
+            if (token && currUser) {
                 Cookies.set('token', token)
                 Cookies.set('user_id', currUser.user_id)
-                api.defaults.headers.Authorization = `Bearer ${token.token}`
+                api.defaults.headers.Authorization = `Bearer ${token}`
                 setUser(currUser)
             }
 
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
             if (token && currUser) {
                 Cookies.set('token', token)
                 Cookies.set('user_id', currUser.user_id)
-                api.defaults.headers.Authorization = `Bearer ${token.token}`
+                api.defaults.headers.Authorization = `Bearer ${token}`
                 setUser(currUser)
             }
 
@@ -80,7 +80,6 @@ export const AuthProvider = ({ children }) => {
         Cookies.remove('user_id')
         setUser(null)
         delete api.defaults.headers.Authorization
-        window.location.pathname = '/Login'
     }
 
 

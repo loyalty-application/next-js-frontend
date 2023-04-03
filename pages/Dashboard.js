@@ -8,11 +8,12 @@ import { useAuth } from "../contexts/AuthContext";
 import api from "../config/api";
 import { useRouter } from "next/router";
 import CardDetails from "./components/CardDetails";
+import Skeleton from "react-loading-skeleton";
 
 
 const Dashboard = () => {
     // login state
-    const { user, loading, login, logout } = useAuth()
+    const { user, loading } = useAuth()
 
     // page states 
     const [totals, setTotals] = useState({
@@ -35,32 +36,34 @@ const Dashboard = () => {
         if (!user) {
             router.replace('/Login')
         }
-        fetchCards();
-        fetchTransactions();
-        fetchTotals()
-    }, []);
+        if (!loading && user && user.user_id) {
+            fetchCards(user.user_id)
+            fetchTransactions(user.user_id)
+            fetchTotals(user.user_id)
+        }
+    }, [user, loading]);
 
-    const fetchTransactions = async () => {
+    const fetchTransactions = async (user_id) => {
         try {
-            const res = await api.get(`/api/v1/transaction/${user.user_id}`);
+            const res = await api.get(`/api/v1/transaction/${user_id}`);
             const data = res.data
             setTransactions(data);
         } catch (e) {
             console.log(e);
         }
     };
-    const fetchCards = async () => {
+    const fetchCards = async (user_id) => {
         try {
-            const res = await api.get(`/api/v1/card/user/${user.user_id}`)
+            const res = await api.get(`/api/v1/card/user/${user_id}`)
             const data = res.data
             setCards(data);
         } catch (e) {
             console.log(e)
         }
     };
-    const fetchTotals = async () => {
+    const fetchTotals = async (user_id) => {
         try {
-            const res = await api.get(`/api/v1/user/${user.user_id}`);
+            const res = await api.get(`/api/v1/user/${user_id}`);
             const data = res.data
             setTotals(data);
         }
@@ -78,7 +81,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen">
+        user ? <div className="min-h-screen">
             <Navbar />
             <div>
                 <div className="w-full h-screen md:w-auto md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
@@ -114,7 +117,7 @@ const Dashboard = () => {
                     <UserTransactions transactions={transactions} />
                 </div>
             </div>
-        </div>
+        </div> : <Skeleton count={10}></Skeleton>
     );
 };
 
