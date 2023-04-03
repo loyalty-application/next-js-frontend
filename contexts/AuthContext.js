@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import Router, { useRouter } from 'next/router'
+import Skeleton from 'react-loading-skeleton';
 import api from '../config/api'
+
 
 const AuthContext = createContext({});
 
@@ -13,10 +14,13 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         async function loadUserFromCookies() {
             const token = Cookies.get('token')
-            if (token) {
-                console.log("Got a token in the cookies, let's see if it is valid")
+            const user_id = Cookies.get('user_id')
+
+            if (token && user_id) {
                 api.defaults.headers.Authorization = `Bearer ${token}`
-                //const { data: user } = await api.get('users/me')
+                let res = await api.get(`/api/v1/user/${user_id}`)
+                delete res.data.password
+                const user = res.data
                 if (user) setUser(user);
             }
             setLoading(false)
@@ -36,7 +40,8 @@ export const AuthProvider = ({ children }) => {
             const currUser = res.data
 
             if (token) {
-                Cookies.set('token', token, { expires: 60 })
+                Cookies.set('token', token)
+                Cookies.set('user_id', currUser.user_id)
                 api.defaults.headers.Authorization = `Bearer ${token.token}`
                 setUser(currUser)
             }
@@ -52,13 +57,14 @@ export const AuthProvider = ({ children }) => {
                 // handle axios errors 
                 console.log(err)
             })
-            delete res.data.password
 
+            delete res.data.password
             const token = res.data.token
             const currUser = res.data
 
-            if (token) {
-                Cookies.set('token', token, { expires: 60 })
+            if (token && currUser) {
+                Cookies.set('token', token)
+                Cookies.set('user_id', currUser.user_id)
                 api.defaults.headers.Authorization = `Bearer ${token.token}`
                 setUser(currUser)
             }
@@ -69,15 +75,14 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
-    const logout = (email, password) => {
+    const logout = () => {
         Cookies.remove('token')
+        Cookies.remove('user_id')
         setUser(null)
         delete api.defaults.headers.Authorization
         window.location.pathname = '/Login'
     }
 
-
-    console.log(`logged in as: ${user}`)
 
     return (
         <AuthContext.Provider value={{ isAuthenticated: !!user, user, login, loading, logout, signup }}>
@@ -87,4 +92,13 @@ export const AuthProvider = ({ children }) => {
 }
 
 export const useAuth = () => useContext(AuthContext)
+
+export const ProtectRoute = ({ children }) => {
+
+    const { isAuthenticated, loading } = useAuth();
+    if (loading) {
+        return <Skeleton count={10}></Skeleton>
+    }
+    return children;
+}
 
