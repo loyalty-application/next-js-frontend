@@ -14,8 +14,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import CumulativeTotals from "./components/CumulativeTotals";
-import UserTransactions from "./components/UserTransactions"
-
+import UserTransactions from "./components/UserTransactions";
 
 const Dashboard = () => {
   const API_URL = "http://35.187.241.140:8080/api/v1/card/user/";
@@ -51,7 +50,7 @@ const Dashboard = () => {
 
     return (
       <div className="grid grid-cols-2 gap-4 bg-[#F7F8F9]">
-        <div className="p-10">
+        <div className="p-10 pl-20">
           <TableContainer component={Paper}>
             <Table aria-label="card table">
               <TableHead>
@@ -80,7 +79,7 @@ const Dashboard = () => {
           </TableContainer>
         </div>
         <div>
-        <CumulativeTotals userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
+          <CumulativeTotals userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
         </div>
       </div>
     );
@@ -100,7 +99,7 @@ const Dashboard = () => {
       <div>
         <div className="w-full h-screen md:w-auto md:flex-grow bg-gradient-to-r from-gray-100 to-gray-50">
           <div className="p-4">
-            <p className="font-bold text-2xl pt-10 px-5">
+            <p className="font-bold text-2xl py-10 pl-20">
               {" "}
               Good to see you here, username!
             </p>
@@ -126,7 +125,7 @@ const Dashboard = () => {
             />
           </div>
           <CardDetails userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
-          <UserTransactions userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2"  />
+          <UserTransactions userId="6da94a1c-4dd6-4c2c-a35e-8879cc8503c2" />
         </div>
       </div>
     </div>
