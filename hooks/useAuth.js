@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import api from '../config/Api'
 
 
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
         loadUserFromCookies()
     }, [])
 
-    const signup = async (email, password, fullname) => {
+    const signup = async (email, password) => {
         try {
             let res = await api.post('/api/v1/auth/registration', { email, password }).catch((err) => {
                 // handle axios errors 
@@ -96,7 +96,7 @@ export const ProtectRoute = ({ children }) => {
 
     const { isAuthenticated, loading } = useAuth();
     if (loading) {
-        return <Skeleton count={10}></Skeleton>
+        return <div className='p-10'><Skeleton className='p-5' count={5} height={100} /></div>
     }
     return children;
 }

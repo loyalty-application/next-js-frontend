@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useAuth } from "../../hooks/useAuth";
 import api from "../../config/Api";
 import Skeleton from "react-loading-skeleton";
-import CustomerLayout from "../../components/layouts/CustomerLayout"
+import CustomerLayout from "../../layouts/CustomerLayout"
 import UserTransactions from "../../components/dashboard/UserTransactions";
 import CardDetails from "../../components/dashboard/CardDetails";
 import CumulativeTotals from "../../components/dashboard/CumulativeTotals"

@@ -1,4 +1,4 @@
-import Navbar from '../navigation/Navbar.js'
+import Navbar from '../components/navigation/AdminNavbar.js'
 
 export default function Layout({ children }) {
     return (

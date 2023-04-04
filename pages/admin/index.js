@@ -8,7 +8,7 @@ import TableFooter from "@mui/material/TableFooter";
 import React, { useState, useEffect, useMemo } from "react";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import CustomerLayout from "../../components/layouts/CustomerLayout"
+import AdminLayout from "../../layouts/AdminLayout"
 import TransactionRow from "../../components/transactions/TransactionRow";
 import api from "../../config/Api";
 import { useAuth } from "../../hooks/useAuth";
@@ -144,9 +144,9 @@ const AdminTransactionPage = () => {
 
 AdminTransactionPage.getLayout = function getLayout(page) {
     return (
-        <CustomerLayout>
+        <AdminLayout>
             {page}
-        </CustomerLayout>
+        </AdminLayout>
     )
 }
 
