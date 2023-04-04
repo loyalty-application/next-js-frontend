@@ -31,6 +31,7 @@ export default function CustomPaginationActionsTable({ transactions }) {
             return "-";
         }
     }
+    
     return (
         <div className="pt-5 p-20 bg-[#F7F8F9]">
             <TableContainer component={Paper}>
@@ -39,17 +40,17 @@ export default function CustomPaginationActionsTable({ transactions }) {
                         <TableRow>
                             <TableCell>{"Transaction ID"}</TableCell>
                             <TableCell align="left">{"Transaction Date"}</TableCell>
-                            <TableCell align="right">{"Amount"}</TableCell>
+                            <TableCell align="left">{"Amount"}</TableCell>
                             <TableCell >{"Merchant"}</TableCell>
-                            <TableCell align="right">{"Reward"}</TableCell>
+                            <TableCell align="left">{"Reward"}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>{transactions ? transactions.map((transaction) => (<TableRow key={transaction.id}>
                         <TableCell component="th" scope="row">{transaction.transaction_id}</TableCell>
                         <TableCell align="left">{transaction.transaction_date}</TableCell>
-                        <TableCell align="right">{transaction.amount}</TableCell>
+                        <TableCell align="left">{transaction.amount}</TableCell>
                         <TableCell>{transaction.merchant}</TableCell>
-                        <TableCell align="right">{getRewardValue(transaction.points, transaction.miles, transaction.cashback)}</TableCell>
+                        <TableCell align="left">{getRewardValue(transaction.points, transaction.miles, transaction.cashback)}</TableCell>
                     </TableRow>)) : <TableRow></TableRow>}
                     </TableBody>
                 </Table>

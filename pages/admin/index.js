@@ -59,6 +59,7 @@ const AdminTransactionPage = () => {
         try {
             const res = await api.get(`/api/v1/transaction?limit=${rpp}&page=${pg}`);
             const data = res.data
+            console.log(data)
             setTransactions(data);
         } catch (e) {
             console.log(e)

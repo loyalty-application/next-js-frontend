@@ -25,6 +25,15 @@ const getRewardValue = (points, miles, cashback) => {
     }
 }
 
+const getMcc = (mcc) => {
+    if(mcc === ''){
+        return '-'
+    } else {
+        return mcc
+    }
+}
+
+
 TransactionRow.propTypes = {
     row: PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -65,7 +74,7 @@ export default function TransactionRow(props) {
                     {row.transaction_id}
                 </TableCell>
                 <TableCell align='left'>{row.transaction_date}</TableCell>
-                <TableCell>{row.mcc}</TableCell>
+                <TableCell>{getMcc(row.mcc)}</TableCell>
                 <TableCell>{row.merchant}</TableCell>
                 <TableCell align='right'>{row.amount}</TableCell>
                 <TableCell align='right'>{getRewardValue(row.points, row.miles, row.cashback)}</TableCell>
