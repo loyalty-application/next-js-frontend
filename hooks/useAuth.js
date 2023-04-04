@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import api from '../config/Api'
 
 
@@ -96,7 +96,7 @@ export const ProtectRoute = ({ children }) => {
 
     const { isAuthenticated, loading } = useAuth();
     if (loading) {
-        return <div className='p-10'><Skeleton className='p-5' count={5} height={100} /></div>
+        return <div className='p-10'><div className='p-5' count={5} height={100}></div></div>
     }
     return children;
 }

@@ -13,8 +13,8 @@ import TransactionRow from "../../components/transactions/TransactionRow";
 import api from "../../config/Api";
 import { useAuth } from "../../hooks/useAuth";
 import { Router } from "next/router";
-import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css'
+// import Skeleton from "react-loading-skeleton";
+// import 'react-loading-skeleton/dist/skeleton.css'
 
 const AdminTransactionPage = () => {
 
@@ -107,7 +107,7 @@ const AdminTransactionPage = () => {
                                         <TableCell align="right">Reward</TableCell>
                                     </TableRow>
                                 </TableHead>
-                                {tableLoading ? <TableBody><TableRow><TableCell colSpan={7}><Skeleton height={65} count={rowsPerPage}></Skeleton></TableCell></TableRow></TableBody> :
+                                {tableLoading ? <TableBody><TableRow><TableCell colSpan={7}><div height={65} count={rowsPerPage}></div></TableCell></TableRow></TableBody> :
                                     <TableBody>
                                         {(rows
                                         ).map((row) => (

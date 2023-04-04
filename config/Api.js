@@ -1,8 +1,8 @@
 import Axios from "axios";
 
 let urls = {
-    test: `http://localhost:8080`,
-    development: 'http://localhost:8080',
+    test: `http://35.187.241.140:8080`,
+    development: 'http://35.187.241.140:8080',
     production: 'https://go-gin-backend.itsag1t6.com'
 }
 const api = Axios.create({

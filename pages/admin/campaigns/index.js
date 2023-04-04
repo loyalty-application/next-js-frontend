@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { DataGrid, GridToolbar, GridToolbarContainer } from '@mui/x-data-grid';
 import AdminLayout from '../../../layouts/AdminLayout'
 import api from '../../../config/Api';
-import Skeleton from 'react-loading-skeleton';
+// import Skeleton from 'react-loading-skeleton';
 import { CARD_TYPE } from '../../../config/CardTypes';
 
 const CampaignPage = () => {
@@ -91,7 +91,7 @@ const CampaignPage = () => {
 
     return (
         <div className='px-10 py-20'>
-            {pageLoading ? <Skeleton count={rowsPerPage} height={60}></Skeleton> : <Box sx={{ height: '100vh', width: '100%' }}>
+            {pageLoading ? <div count={rowsPerPage} height={60}></div> : <Box sx={{ height: '100vh', width: '100%' }}>
                 <DataGrid
                     getRowId={(r) => r.campaign_id}
                     autoHeight {...campaigns}

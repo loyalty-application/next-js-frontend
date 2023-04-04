@@ -7,7 +7,7 @@ import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
 import LockIcon from '@mui/icons-material/Lock';
 import { useAuth } from "../hooks/useAuth";
 import { Router } from "next/router";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
     const { user, loading, logout } = useAuth()

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "../../hooks/useAuth";
 import api from "../../config/Api";
-import Skeleton from "react-loading-skeleton";
+// import Skeleton from "react-loading-skeleton";
 import CustomerLayout from "../../layouts/CustomerLayout"
 import UserTransactions from "../../components/dashboard/UserTransactions";
 import CardDetails from "../../components/dashboard/CardDetails";
@@ -108,7 +108,7 @@ const DashboardPage = () => {
 
                 </div>
             </div>
-        </div> : <Skeleton count={10}></Skeleton>
+        </div> : <div count={10}></div>
     );
 };
 
