@@ -34,31 +34,31 @@ const getMcc = (mcc) => {
 };
 
 TransactionRow.propTypes = {
-    row: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      transaction_id: PropTypes.string.isRequired,
-      merchant: PropTypes.string.isRequired,
-      mcc: PropTypes.string.isRequired,
-      currency: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
-      transaction_date: PropTypes.string.isRequired,
-      card_id: PropTypes.string.isRequired,
-      card_pan: PropTypes.string.isRequired,
-      card_type: PropTypes.string.isRequired,
-      points: PropTypes.number.isRequired,
-      miles: PropTypes.number.isRequired,
-      cashback: PropTypes.number.isRequired,
-      is_deleted: PropTypes.bool.isRequired,
-      campaign: PropTypes.shape({
-        id: PropTypes.string,
-        merchant: PropTypes.string,
-        card_type: PropTypes.string,
-        start_date: PropTypes.string,
-        end_date: PropTypes.string,
-        description: PropTypes.string,
-      }),
-    }).isRequired,
-  };
+  row: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    transaction_id: PropTypes.string.isRequired,
+    merchant: PropTypes.string.isRequired,
+    mcc: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    transaction_date: PropTypes.string.isRequired,
+    card_id: PropTypes.string.isRequired,
+    card_pan: PropTypes.string.isRequired,
+    card_type: PropTypes.string.isRequired,
+    points: PropTypes.number.isRequired,
+    miles: PropTypes.number.isRequired,
+    cashback: PropTypes.number.isRequired,
+    is_deleted: PropTypes.bool.isRequired,
+    campaign: PropTypes.shape({
+      id: PropTypes.string,
+      merchant: PropTypes.string,
+      card_type: PropTypes.string,
+      start_date: PropTypes.string,
+      end_date: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  }).isRequired,
+};
 
 export default function TransactionRow(props) {
   const { row } = props;
@@ -115,43 +115,6 @@ export default function TransactionRow(props) {
                 </TableBody>
               </Table>
             </Box>
-            {/* <Box sx={{ margin: 1 }}>
-                            <Typography variant="h6" gutterBottom component="div">
-                                {"🎁 Campaign Details"}
-                            </Typography>
-                            <Table size="small" aria-label="campaign-details">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Campaign ID</TableCell>
-                                        <TableCell>Merchant</TableCell>
-                                        <TableCell>Card Type</TableCell>
-                                        <TableCell>Start Date</TableCell>
-                                        <TableCell>End Date</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    <TableRow key={row.campaign_id}>
-                                        <TableCell component="th" scope="row">
-                                            {row.campaign_id}
-                                        </TableCell>
-                                        <TableCell>{row.merchant}</TableCell>
-                                        <TableCell>{CARD_TYPE[row.card_type]}</TableCell>
-                                        <TableCell>{row.start_date}</TableCell>
-                                        <TableCell>{row.end_date}</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                                <TableHead>
-                                    <TableRow >
-                                        <TableCell colSpan={7}>Description</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    <TableRow key={row.campaign_id}>
-                                        <TableCell colSpan={7}>{row.description}</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </Box> */}
             {row.campaign.campaign_id !== "" && (
               <Box sx={{ margin: 1 }}>
                 <Typography variant="h6" gutterBottom component="div">
@@ -185,7 +148,9 @@ export default function TransactionRow(props) {
                   </TableHead>
                   <TableBody>
                     <TableRow key={row.campaign.campaign_id}>
-                      <TableCell colSpan={7}>{row.campaign.description}</TableCell>
+                      <TableCell colSpan={7}>
+                        {row.campaign.description}
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
