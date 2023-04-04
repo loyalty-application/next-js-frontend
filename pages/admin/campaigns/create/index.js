@@ -83,6 +83,13 @@ const AdminCampaignPage = () => {
       setCampaigns([...campaigns, campaign]);
 
       console.log(res.data);
+
+      setCardType("");
+      setMinSpend("");
+      setMerchantName("");
+      setDescription("");
+      setStartDate("");
+      setEndDate("");
     } catch (error) {
       console.log(error);
     }
