@@ -4,7 +4,6 @@ import {
     TextField,
     MenuItem,
     FormControl,
-    InputLabel,
     Select,
     InputAdornment,
 } from "@mui/material";
@@ -103,7 +102,7 @@ const AdminCampaignPage = () => {
                                                 </label>
                                                 <div className="mt-2.5 relative">
                                                     <FormControl id="cardType" name="cardType" className="w-full">
-                                                        <InputLabel>Choose a card type</InputLabel>
+                                                       
                                                         <Select value={cardType} onChange={(e) => setCardType(e.target.value)}>
                                                             {
                                                                 Object.keys(CARD_TYPE).map((k) => {
@@ -126,7 +125,7 @@ const AdminCampaignPage = () => {
                                                         type="text"
                                                         name="merchantName"
                                                         id="merchantName"
-                                                        placeholder="Merchant name"
+                                                  
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                                         value={merchantName}
                                                         onChange={(e) => setMerchantName(e.target.value)}
@@ -143,7 +142,7 @@ const AdminCampaignPage = () => {
                                                 </label>
                                                 <div className="mt-2.5 relative">
                                                     <FormControl id="rewardType" name="rewardType" className="w-full">
-                                                        <InputLabel>Choose a reward type</InputLabel>
+
                                                         <Select value={rewardType} onChange={(e) => setRewardType(e.target.value)}>
                                                             <MenuItem value={"cashback"}>Cashback</MenuItem>
                                                             <MenuItem value={"miles"}>Miles</MenuItem>
@@ -165,7 +164,7 @@ const AdminCampaignPage = () => {
                                                         type="number"
                                                         name=""
                                                         id=""
-                                                        placeholder="Minimum spend amount"
+                                     
                                                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                                                         InputProps={{
                                                             startAdornment: (
