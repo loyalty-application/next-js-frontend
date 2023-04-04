@@ -33,7 +33,6 @@ const getMcc = (mcc) => {
     }
 }
 
-
 TransactionRow.propTypes = {
     row: PropTypes.shape({
         id: PropTypes.string.isRequired,

@@ -2,20 +2,22 @@ import Link from "next/link";
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { Router } from "next/router";
+import { Router, useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 
 
 const Navbar = () => {
     const { user, loading, logout } = useAuth()
+    const router = useRouter();
+
     const handleLogout = () => {
         logout()
     }
 
     useEffect(() => {
         if (!user) {
-            Router.replace('/admin/login');
+            router.replace('/admin/login');
         }
         if (!loading) {
 
