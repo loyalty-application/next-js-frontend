@@ -24,48 +24,47 @@ const AdminCampaignPage = () => {
   const [endDate, setEndDate] = useState("");
   const campaignId = uuidv4();
 
-
   const handleSubmit = () => {
     createCampaign();
   };
 
-//   const createCampaign = async () => {
-//     try {
-//       console.log(
-//         campaignId,
-//         cardType,
-//         minSpend,
-//         merchantName,
-//         description,
+  //   const createCampaign = async () => {
+  //     try {
+  //       console.log(
+  //         campaignId,
+  //         cardType,
+  //         minSpend,
+  //         merchantName,
+  //         description,
 
-//         startDateFormatted,
+  //         startDateFormatted,
 
-//         endDateFormatted,
-//         campaigns
-//       );
+  //         endDateFormatted,
+  //         campaigns
+  //       );
 
-//       const res = await api.post(`/api/v1/campaign`, {
-//         campaigns: [
-//           {
-//             campaign_id: campaignId,
-//             card_type: cardType,
-//             min_spend: minSpend,
-//             description: description,
-//             end_date: endDateFormatted,
-//             merchant: merchantName,
-//             start_date: startDateFormatted,
-//           },
-//         ],
-//       });
-//       console.log(res.data);
-//       console.log(res);
-//     } catch (e) {
-//       console.log(e);
-//     }
-//   };
-const [campaigns, setCampaigns] = useState([]);
+  //       const res = await api.post(`/api/v1/campaign`, {
+  //         campaigns: [
+  //           {
+  //             campaign_id: campaignId,
+  //             card_type: cardType,
+  //             min_spend: minSpend,
+  //             description: description,
+  //             end_date: endDateFormatted,
+  //             merchant: merchantName,
+  //             start_date: startDateFormatted,
+  //           },
+  //         ],
+  //       });
+  //       console.log(res.data);
+  //       console.log(res);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
+  const [campaigns, setCampaigns] = useState([]);
 
-const createCampaign = async () => {
+  const createCampaign = async () => {
     try {
       const campaign = {
         campaign_id: campaignId,
@@ -76,21 +75,18 @@ const createCampaign = async () => {
         merchant: merchantName,
         start_date: startDateFormatted,
       };
-      
+
       const campaigns = [campaign];
-      
-      const res = await api.post('/api/v1/campaign', { campaigns });
-      
+
+      const res = await api.post("/api/v1/campaign", { campaigns });
+
       setCampaigns([...campaigns, campaign]);
-      
+
       console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
-  
-  
-
 
   const startDateFormatted = startDate
     ? new Date(startDate).toISOString().slice(0, 16).replace("T", " ")
@@ -158,16 +154,14 @@ const createCampaign = async () => {
                           Merchant
                         </label>
                         <div className="mt-2.5 relative">
-                          <input
-                            type="text"
-                            name="merchantName"
-                            id="merchantName"
-                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                          <TextField
+                            fullWidth
                             value={merchantName}
                             onChange={(e) => setMerchantName(e.target.value)}
                           />
                         </div>
                       </div>
+
                       <div>
                         <label
                           htmlFor=""
@@ -177,10 +171,8 @@ const createCampaign = async () => {
                         </label>
                         <div className="mt-2.5 relative">
                           <TextField
+                            fullWidth
                             type="number"
-                            name=""
-                            id=""
-                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                             InputProps={{
                               startAdornment: (
                                 <InputAdornment position="start">
@@ -193,35 +185,60 @@ const createCampaign = async () => {
                           />
                         </div>
                       </div>
-
-                      <TextField
-                        fullWidth
-                        label="Start Date"
-                        type="datetime-local"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <br />
-                      <br />
-                      <TextField
-                        fullWidth
-                        label="End Date"
-                        type="datetime-local"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                      <TextField
-                        fullWidth
-                        label="Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                      />
+                      <br></br>
+                      <div>
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Start Date
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <TextField
+                            fullWidth
+                            type="datetime-local"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          End Date
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <TextField
+                            fullWidth
+                            type="datetime-local"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="grid col-span-2">
+                        <label
+                          htmlFor=""
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <TextField
+                            fullWidth
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                          />
+                        </div>
+                      </div>
 
                       <div className="sm:col-span-2">
                         <button
