@@ -1,4 +1,3 @@
-// api.js
 import Axios from "axios";
 
 let urls = {

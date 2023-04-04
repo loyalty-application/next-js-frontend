@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import Cookies from 'js-cookie'
 import Skeleton from 'react-loading-skeleton';
-import api from '../config/api'
+import api from '../config/Api'
 
 
 const AuthContext = createContext({});

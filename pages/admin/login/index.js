@@ -10,8 +10,11 @@ const AdminLogin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    if (user) {
+    if (user && user.user_type == 'admin' || user.user_type == 'superadmin') {
         Router.replace('/admin')
+    }
+    else if (user && user.user_type == 'user') {
+        Router.replace('/dashboard')
     }
 
     const handleLogin = () => {
@@ -23,10 +26,10 @@ const AdminLogin = () => {
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="max-w-2xl mx-auto text-center">
                     <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-                        Welcome Back!
+                        Admin Login
                     </h2>
                     <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
-                        Login to your account
+                        Login to your admin account!
                     </p>
                 </div>
                 <div className="relative max-w-md mx-auto mt-8 md:mt-16">
