@@ -80,13 +80,13 @@ const Navbar = () => {
                                 Campaigns
                             </li>
                         </Link>
-                        <button
+                        {/* <button
                             onClick={(e) => { e.preventDefault(); handleLogout() }}
                         >
                             <li className="mx-5 hover:underline text-base font-medium text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600">
                                 {user ? "Log Out" : "Log In"}
                             </li>
-                        </button>
+                        </button> */}
                     </ul>
                 </div>
             </div>
