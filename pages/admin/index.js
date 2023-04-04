@@ -105,7 +105,7 @@ const AdminTransactionPage = () => {
                                         <TableCell>MCC</TableCell>
                                         <TableCell>Merchant</TableCell>
                                         <TableCell>Amount</TableCell>
-                                        <TableCell align="right">Reward</TableCell>
+                                        <TableCell>Reward</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 {tableLoading ? <TableBody><TableRow><TableCell colSpan={7}><div height={65} count={rowsPerPage}></div></TableCell></TableRow></TableBody> :

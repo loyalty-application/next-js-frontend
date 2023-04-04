@@ -75,8 +75,8 @@ export default function TransactionRow(props) {
                 <TableCell align='left'>{row.transaction_date}</TableCell>
                 <TableCell>{getMcc(row.mcc)}</TableCell>
                 <TableCell>{row.merchant}</TableCell>
-                <TableCell align='right'>{row.amount}</TableCell>
-                <TableCell align='right'>{getRewardValue(row.points, row.miles, row.cashback)}</TableCell>
+                <TableCell align='left'>{row.amount}</TableCell>
+                <TableCell align='left'>{getRewardValue(row.points, row.miles, row.cashback)}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>

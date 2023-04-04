@@ -76,12 +76,6 @@ const CampaignPage = () => {
             resizable: true,
         },
         {
-            field: 'accepted_mccs',
-            headerName: 'Accepted MCCs',
-            flex: 1,
-            resizable: true,
-        },
-        {
             field: 'description',
             headerName: 'Description',
             flex: 1,
