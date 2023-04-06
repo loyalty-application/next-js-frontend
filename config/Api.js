@@ -2,7 +2,7 @@ import Axios from "axios";
 
 let urls = {
     test: `http://35.187.241.140:8080`,
-    development: 'http://35.187.241.140:8080',
+    development: 'https://go-gin-backend.itsag1t6.com',
     production: 'https://go-gin-backend.itsag1t6.com'
 }
 const api = Axios.create({

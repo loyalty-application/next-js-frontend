@@ -81,10 +81,8 @@ const AdminTransactionPage = () => {
         setCurrentPage(0);
     };
 
-    // Update rows to match the data structure
-    const rows = transactions.sort((a, b) =>
-        a.transaction_date < b.transaction_date ? -1 : 1
-    );
+    //Update rows to match the data structure
+    const rows = transactions
 
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
