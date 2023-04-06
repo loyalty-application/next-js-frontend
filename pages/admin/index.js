@@ -5,6 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableFooter from "@mui/material/TableFooter";
+import { Skeleton } from "@mui/material";
 import React, { useState, useEffect, useMemo } from "react";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
@@ -67,11 +68,13 @@ const AdminTransactionPage = () => {
     };
 
     const handleChangePage = (event, newPage) => {
+        setTransactions([])
         setTableLoading(true)
         setCurrentPage(newPage);
     };
 
     const handleChangeRowsPerPage = (event) => {
+        setTransactions([])
         setTableLoading(true)
         const newRowsPerPage = parseInt(event.target.value, 10);
         setRowsPerPage(newRowsPerPage);
@@ -108,7 +111,7 @@ const AdminTransactionPage = () => {
                                         <TableCell>Reward</TableCell>
                                     </TableRow>
                                 </TableHead>
-                                {tableLoading ? <TableBody><TableRow><TableCell colSpan={7}><div height={65} count={rowsPerPage}></div></TableCell></TableRow></TableBody> :
+                                {tableLoading ? <TableBody><TableRow><TableCell colSpan={7}><Skeleton variant="rectangular" height={65} /></TableCell></TableRow></TableBody> :
                                     <TableBody>
                                         {(rows
                                         ).map((row) => (
